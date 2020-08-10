@@ -10,13 +10,14 @@ public class AnchorManager : MonoBehaviour
     [SerializeField]
     private List<Anchor> listAnchor;
     [SerializeField]
-    private GameObject anchorPool, player;
+    private GameObject anchorPool;
 
 
     #region Mono Behaviour
     private void Awake()
     {
         Instance = this;
+        anchorPool = Instance.gameObject;
         initListAnchor();
     }
     #endregion
