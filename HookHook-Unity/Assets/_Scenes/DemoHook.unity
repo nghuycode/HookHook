@@ -1257,7 +1257,7 @@ MonoBehaviour:
   newPosition: {x: 0, y: 0, z: -10}
   followX: 1
   followY: 0
-  speedFollow: 0.125
+  speedFollow: 10
 --- !u!20 &5836363278434377654
 Camera:
   m_ObjectHideFlags: 0
