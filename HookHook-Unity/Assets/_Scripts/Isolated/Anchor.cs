@@ -9,4 +9,8 @@ public class Anchor : MonoBehaviour
     {
         rb = this.GetComponent<Rigidbody2D>();
     }
+    public void OnLocking()
+    {
+
+    }
 }

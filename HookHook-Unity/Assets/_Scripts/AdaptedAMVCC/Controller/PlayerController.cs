@@ -13,19 +13,16 @@ public class PlayerController : Controller<GameplayApp>
     {
         if (!app.model.PlayerModel.IsSwinging)
         {
-            Debug.Log("Shoot Rope");
             app.view.PlayerView.OnShootRope();
             app.model.PlayerModel.IsSwinging = true;
         }
         else
         {
-            Debug.Log("Swing Rope");
             app.view.PlayerView.OnSwingRope();
         }
     }
     public void ReleaseRope()
     {
-        Debug.Log("Release Rope");
         app.view.PlayerView.OnReleaseRope();
         app.model.PlayerModel.IsSwinging = false;
     }

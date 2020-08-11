@@ -13,6 +13,8 @@ public class PlayerView : View<GameplayApp>
     private Rigidbody2D rb;
     [SerializeField]
     private DistanceJoint2D distanceJoint;
+    [SerializeField]
+    private TrailRenderer trail;
 
     private void Awake()
     {
@@ -20,6 +22,7 @@ public class PlayerView : View<GameplayApp>
         distanceJoint = this.GetComponent<DistanceJoint2D>();
         sprite = this.GetComponent<SpriteRenderer>();
         rope = this.GetComponent<LineRenderer>();
+        trail = this.GetComponent<TrailRenderer>();
     }
     private void Update()
     {
@@ -27,7 +30,6 @@ public class PlayerView : View<GameplayApp>
     }
     private void flipWithVelocity()
     {
-        Debug.Log(rb.velocity);
         if (rb.velocity.x > 0)
             sprite.flipX = false;
         if (rb.velocity.x < 0)
@@ -70,7 +72,10 @@ public class PlayerView : View<GameplayApp>
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.CompareTag("Award"))
+        {
+            Debug.Log("Win Game");
+        }
     }
     private Anchor FindNextAnchor()
     {

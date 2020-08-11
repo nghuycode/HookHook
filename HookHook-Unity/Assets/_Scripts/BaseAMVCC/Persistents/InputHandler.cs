@@ -38,7 +38,6 @@ public class InputHandler : MonoBehaviour
     public event Action OnTouchScreen;
     public void TouchScreen()
     {
-        Debug.Log("Cc");
         if (OnTouchScreen != null)
             OnTouchScreen();
     }
@@ -122,11 +121,9 @@ public class InputHandler : MonoBehaviour
         if (disX > diffX && disX > disY)
         {
             if (Input.mousePosition.x > _startTouchPos.x) {
-                Debug.Log("SwipeRight");
                 SwipeRight();
             }
             else {
-                Debug.Log("SwipeLeft");
                 SwipeLeft();
             }
         }

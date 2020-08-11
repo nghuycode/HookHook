@@ -41,7 +41,6 @@ public class AnchorManager : MonoBehaviour
             {
                 //Optimize
                 //Implement optimize here...
-                Debug.Log(i + ":" + distance(playerPosition, listAnchor[i].transform.position));
                 if (minDistance > distance(playerPosition, listAnchor[i].transform.position))
                 {
                     minDistance = distance(playerPosition, listAnchor[i].transform.position);
@@ -49,10 +48,14 @@ public class AnchorManager : MonoBehaviour
                 }
             }
             currentAnchorID = minDistanceAnchorID;
+            listAnchor[currentAnchorID].OnLocking();
             return listAnchor[minDistanceAnchorID];
         }
         else
+        {
+            listAnchor[currentAnchorID].OnLocking();
             return listAnchor[currentAnchorID];
+        }
     }
     #endregion
     #region Others
