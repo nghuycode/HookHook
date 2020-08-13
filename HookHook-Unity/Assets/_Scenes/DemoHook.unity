@@ -403,6 +403,7 @@ Transform:
   m_GameObject: {fileID: 591150266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.7, y: -4.49, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 1406153554}
@@ -774,6 +775,7 @@ PrefabInstance:
     - target: {fileID: 441612831405416105, guid: 34abbeeffd2fede4e8ff91e9d16d6b4d,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
+      value: 12.497258
       value: 47.907257
       objectReference: {fileID: 0}
     - target: {fileID: 441612831405416105, guid: 34abbeeffd2fede4e8ff91e9d16d6b4d,

@@ -10,13 +10,14 @@ public class AnchorManager : MonoBehaviour
     [SerializeField]
     private List<Anchor> listAnchor;
     [SerializeField]
-    private GameObject anchorPool, player;
+    private GameObject anchorPool;
 
 
     #region Mono Behaviour
     private void Awake()
     {
         Instance = this;
+        anchorPool = Instance.gameObject;
         initListAnchor();
     }
     #endregion
@@ -30,6 +31,14 @@ public class AnchorManager : MonoBehaviour
     {
         listAnchor.Add(anchor);
     }
+    public void UnlockAnchor()
+    {
+        listAnchor[currentAnchorID].OnUnlocking();
+    }
+    public void LockAnchor()
+    {
+        listAnchor[currentAnchorID].OnLocking();
+    }
     public Anchor FindNearestAnchorWithPlayer(Vector3 playerPosition, bool isSwinging)
     {
         if (!isSwinging)
@@ -40,7 +49,6 @@ public class AnchorManager : MonoBehaviour
             {
                 //Optimize
                 //Implement optimize here...
-                Debug.Log(i + ":" + distance(playerPosition, listAnchor[i].transform.position));
                 if (minDistance > distance(playerPosition, listAnchor[i].transform.position))
                 {
                     minDistance = distance(playerPosition, listAnchor[i].transform.position);
@@ -48,10 +56,14 @@ public class AnchorManager : MonoBehaviour
                 }
             }
             currentAnchorID = minDistanceAnchorID;
+            LockAnchor();
             return listAnchor[minDistanceAnchorID];
         }
         else
+        {
+            listAnchor[currentAnchorID].OnLocking();
             return listAnchor[currentAnchorID];
+        }
     }
     #endregion
     #region Others
