@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
     #endregion
-
     #region Events and Actions
     public event Action OnInitGame;
     public event Action OnStartGame;
@@ -52,7 +51,6 @@ public class GameManager : MonoBehaviour
         if (OnLoseGame != null)
             OnLoseGame();
     }
-
     public void UpdateProgressLevel()
     {
         if (OnUpdateProgressLevel != null)

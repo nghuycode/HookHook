@@ -31,6 +31,14 @@ public class AnchorManager : MonoBehaviour
     {
         listAnchor.Add(anchor);
     }
+    public void UnlockAnchor()
+    {
+        listAnchor[currentAnchorID].OnUnlocking();
+    }
+    public void LockAnchor()
+    {
+        listAnchor[currentAnchorID].OnLocking();
+    }
     public Anchor FindNearestAnchorWithPlayer(Vector3 playerPosition, bool isSwinging)
     {
         if (!isSwinging)
@@ -48,7 +56,7 @@ public class AnchorManager : MonoBehaviour
                 }
             }
             currentAnchorID = minDistanceAnchorID;
-            listAnchor[currentAnchorID].OnLocking();
+            LockAnchor();
             return listAnchor[minDistanceAnchorID];
         }
         else

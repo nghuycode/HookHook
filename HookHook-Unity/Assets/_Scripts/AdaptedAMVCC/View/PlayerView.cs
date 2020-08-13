@@ -14,26 +14,42 @@ public class PlayerView : View<GameplayApp>
     [SerializeField]
     private DistanceJoint2D distanceJoint;
     [SerializeField]
+    private Animator anim;
+    [SerializeField]
     private TrailRenderer trail;
+    [SerializeField]
+    private Vector3 trailOffset, ropeOffset;
 
+    #region MONO BEHAVIOUR
     private void Awake()
     {
         rb = this.GetComponent<Rigidbody2D>();
         distanceJoint = this.GetComponent<DistanceJoint2D>();
         sprite = this.GetComponent<SpriteRenderer>();
-        rope = this.GetComponent<LineRenderer>();
-        trail = this.GetComponent<TrailRenderer>();
+        anim = this.GetComponent<Animator>();
+        //rope = this.GetComponent<LineRenderer>();
+        //trail = this.GetComponent<TrailRenderer>();
     }
-    private void Update()
+    private void FixedUpdate()
     {
         flipWithVelocity();
+        animationPlayer();
     }
+    #endregion
+
+    #region PLAYER VIEW BEHAVIOUR
     private void flipWithVelocity()
     {
-        if (rb.velocity.x > 0)
+        if (rb.velocity.x >= 0)
+        {
             sprite.flipX = false;
-        if (rb.velocity.x < 0)
+            trail.transform.position = this.transform.position - trailOffset;
+        }
+        else
+        {
             sprite.flipX = true;
+            trail.transform.position = this.transform.position + trailOffset;
+        }
     }
     private void addInitForce()
     {
@@ -43,6 +59,10 @@ public class PlayerView : View<GameplayApp>
         else
             rb.AddForce(Vector2.left * forceScale, ForceMode2D.Impulse);
     }
+    private void animationPlayer()
+    {
+        anim.SetBool("IsSwinging", app.model.PlayerModel.IsSwinging);
+    }
     public void OnShootRope()
     {
         addInitForce();   
@@ -51,7 +71,7 @@ public class PlayerView : View<GameplayApp>
     public void OnSwingRope()
     {
         //Line Renderer
-        rope.SetPosition(0, this.transform.position);
+        rope.SetPosition(0, this.transform.position + ropeOffset);
         rope.SetPosition(1, FindNextAnchor().transform.position);
         rope.enabled = true;
 
@@ -65,7 +85,10 @@ public class PlayerView : View<GameplayApp>
 
         distanceJoint.connectedBody = null;
         distanceJoint.enabled = false;
+
+        AnchorManager.Instance.UnlockAnchor();
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         
@@ -81,4 +104,5 @@ public class PlayerView : View<GameplayApp>
     {
         return AnchorManager.Instance.FindNearestAnchorWithPlayer(this.transform.position, app.model.PlayerModel.IsSwinging);
     }
+    #endregion
 }
