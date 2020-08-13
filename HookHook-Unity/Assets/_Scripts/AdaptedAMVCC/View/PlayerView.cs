@@ -40,12 +40,8 @@ public class PlayerView : View<GameplayApp>
     #region PLAYER VIEW BEHAVIOUR
     private void flipWithVelocity()
     {
-<<<<<<< HEAD
-        if (rb.velocity.x > 0)
-=======
         if (rb.velocity.x >= 0)
         {
->>>>>>> origin/dev-ngh
             sprite.flipX = false;
             trail.transform.position = this.transform.position - trailOffset;
         }

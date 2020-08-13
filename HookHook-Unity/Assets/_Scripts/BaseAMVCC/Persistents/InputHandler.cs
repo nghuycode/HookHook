@@ -38,10 +38,6 @@ public class InputHandler : MonoBehaviour
     public event Action OnTouchScreen;
     public void TouchScreen()
     {
-<<<<<<< HEAD
-        //Debug.Log("Cc");
-=======
->>>>>>> origin/dev-ngh
         if (OnTouchScreen != null)
             OnTouchScreen();
     }
