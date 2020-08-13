@@ -38,7 +38,7 @@ public class InputHandler : MonoBehaviour
     public event Action OnTouchScreen;
     public void TouchScreen()
     {
-        Debug.Log("Cc");
+        //Debug.Log("Cc");
         if (OnTouchScreen != null)
             OnTouchScreen();
     }

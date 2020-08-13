@@ -27,7 +27,6 @@ public class PlayerView : View<GameplayApp>
     }
     private void flipWithVelocity()
     {
-        Debug.Log(rb.velocity);
         if (rb.velocity.x > 0)
             sprite.flipX = false;
         if (rb.velocity.x < 0)
@@ -43,7 +42,7 @@ public class PlayerView : View<GameplayApp>
     }
     public void OnShootRope()
     {
-        addInitForce();   
+        //addInitForce();   
         OnSwingRope();
     }
     public void OnSwingRope()
