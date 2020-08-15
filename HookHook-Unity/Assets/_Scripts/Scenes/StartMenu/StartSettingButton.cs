@@ -6,6 +6,6 @@ public class StartSettingButton : MonoBehaviour
 {
     public void OnClick()
     {
-        Debug.Log("Click On Settings Button");
+        SceneManager.SM.StartMenuToSettingsMenu();
     }
 }

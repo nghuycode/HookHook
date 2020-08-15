@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelBackButton : MonoBehaviour
+public class SettingCredit : MonoBehaviour
 {
-
     public void OnClick()
     {
-
 
     }
 }

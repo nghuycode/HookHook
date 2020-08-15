@@ -6,6 +6,6 @@ public class StartStartButton : MonoBehaviour
 {
     public void OnClick()
     {
-        Debug.Log("Click On Start Button");
+        SceneManager.SM.StartMenuToLevelMenu();
     }
 }

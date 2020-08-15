@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    const int totalNum = 9; //Total number of levels
+    const int totalLevel = 9; //Total number of levels
     int userLevel; //Level user has unlocked
 
-    GameObject[] gridObject = new GameObject[totalNum];
-    LevelGrid[] levelGrid = new LevelGrid[totalNum];
+    GameObject[] gridObject = new GameObject[totalLevel];
+    LevelGrid[] levelGrid = new LevelGrid[totalLevel];
     GameObject levelPanel;
     public GameObject gridPrefab;
 
@@ -17,22 +17,27 @@ public class LevelManager : MonoBehaviour
     void Awake()
     {
         levelPanel = GameObject.Find("LevelPanel");
-        userLevel = GetUserLevel();
-    }
-
-    void Start()
-    {
-        GridsInstantiate();
-
-    }
-    void GridsInstantiate()
-    {
-        for (int i = 0; i < totalNum; i++)
+        for (int i = 0; i < totalLevel; i++)
         {
             InstantiateIn(ref gridObject[i], levelPanel);
             levelGrid[i] = gridObject[i].GetComponent<LevelGrid>();
             SetGridInfo(i);
         }
+
+    }
+
+    void OnEnable()
+    {
+        userLevel = GetUserLevel();
+        GridsInstantiate();
+    }
+
+ 
+
+    void GridsInstantiate()
+    {
+        
+
 
         for (int i = 0; i < userLevel; i++)
             levelGrid[i].UnlockLevel();

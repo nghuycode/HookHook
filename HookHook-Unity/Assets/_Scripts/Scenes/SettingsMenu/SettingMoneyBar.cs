@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelMoneyBar : MonoBehaviour
+public class SettingMoneyBar : MonoBehaviour
 {
     public Text MoneyText;
     int currentMoney;
 
-    void Start()
+    void OnEnable()
     {
-        currentMoney = GetMoneyFromUser();    
+        currentMoney = GetMoneyFromUser();
     }
 
     void Update()
     {
-        MoneyText.text = currentMoney.ToString();    
+        MoneyText.text = currentMoney.ToString();
     }
     int GetMoneyFromUser()
     {

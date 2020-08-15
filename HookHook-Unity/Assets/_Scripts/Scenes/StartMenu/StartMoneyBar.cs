@@ -7,10 +7,9 @@ public class StartMoneyBar : MonoBehaviour
 {
     public Text MoneyText;
     int currentMoney;
-
-    void Start()
+    void OnEnable()
     {
-        currentMoney = GetMoneyFromUser();    
+        currentMoney = GetMoneyFromUser();
     }
 
     void Update()

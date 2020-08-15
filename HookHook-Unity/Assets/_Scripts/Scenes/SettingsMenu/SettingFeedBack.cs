@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopBackButton : MonoBehaviour
+public class SettingFeedBack : MonoBehaviour
 {
-
     public void OnClick()
     {
-        SceneManager.SM.ShopMenuToStartMenu();
+
     }
 }
