@@ -1,5 +1,5 @@
-﻿using Assets.Scripts.PModels.PUser;
-using Assets.Scripts.PModels.Shop;
+﻿using PUser;
+using PShop;
 
 namespace PModels
 {
