@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 3685498581360820526, guid: b1e4634cc071bd042b0d416551ce802c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -138,7 +138,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  LockRound: {fileID: 7469759379769036633}
+  lockRound: {fileID: 7469759379769036633}
+  anchorSprite: {fileID: 0}
+  lockAnchorSprite: {fileID: -1737067935999103341, guid: b1e4634cc071bd042b0d416551ce802c,
+    type: 3}
+  unlockAnchorSprite: {fileID: 3685498581360820526, guid: b1e4634cc071bd042b0d416551ce802c,
+    type: 3}
 --- !u!1 &7150520205964059599
 GameObject:
   m_ObjectHideFlags: 0
