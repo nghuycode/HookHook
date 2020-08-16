@@ -7,7 +7,6 @@ using UnityEngine;
 
 namespace PUser
 {
-    [Serializable]
     public class User
     {
         public string Name = "";

@@ -57,7 +57,7 @@ public class LevelManager : MonoBehaviour
 
     int GetUserLevel()
     {
-        int userLevel = 3;//Recieved from User
+        int userLevel = 0;//Recieved from User
         return userLevel;
     }
 }
