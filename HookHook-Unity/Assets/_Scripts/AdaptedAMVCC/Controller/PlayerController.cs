@@ -26,4 +26,18 @@ public class PlayerController : Controller<GameplayApp>
         app.view.PlayerView.OnReleaseRope();
         app.model.PlayerModel.IsSwinging = false;
     }
+    public void PlayerWin()
+    {
+        GameManager.Instance.WinGame();
+        Debug.Log("Win");
+    }
+    public void PlayerLose()
+    {
+        GameManager.Instance.LoseGame();
+        Debug.Log("Die");
+    }
+    public void UpdateProgressMap(float percentage)
+    {
+        GameManager.Instance.UpdateProgressLevel(percentage);
+    }
 }
