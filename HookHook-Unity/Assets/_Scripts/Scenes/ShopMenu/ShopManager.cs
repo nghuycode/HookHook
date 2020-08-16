@@ -27,6 +27,7 @@ public class ShopManager : MonoBehaviour
             shopGrid.Add(gridObject[i].GetComponent<ShopGrid>());
             SetGridInfo(i);
         }
+      
     }
 
 
@@ -41,6 +42,7 @@ public class ShopManager : MonoBehaviour
     {
         List<Item> items;
         items = DataRepository.Shop.Items;
+
         for (int i = 0; i < ToTalItems; i++)
             shopGrid[i].Instance(items[i]);
         
