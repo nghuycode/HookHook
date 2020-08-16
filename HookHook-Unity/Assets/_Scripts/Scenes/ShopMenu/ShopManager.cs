@@ -17,7 +17,7 @@ public class ShopManager : MonoBehaviour
 
     void Awake()
     {
-        //ToTalItems = DataRepository.Shop.Items.Count;
+        ToTalItems = DataRepository.Shop.Items.Count;
         gridObject = new List<GameObject>(ToTalItems);
         shopGrid = new List<ShopGrid>(ToTalItems);
         shopPanel = GameObject.Find("ShopPanel");
