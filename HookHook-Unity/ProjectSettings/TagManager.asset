@@ -14,8 +14,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - ParticleNear
+  - ParticleFar
   - 
   - 
   - 
@@ -39,6 +39,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: ParticleNear
+    uniqueID: 4284836083
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ParticleFar
+    uniqueID: 984799245
     locked: 0

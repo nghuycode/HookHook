@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Scenes/DemoHook.unity
+    guid: 1e71e0ca86ca4a342a564e62f526bba5
   m_configObjects: {}
