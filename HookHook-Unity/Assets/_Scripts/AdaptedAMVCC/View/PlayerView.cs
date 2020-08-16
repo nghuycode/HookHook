@@ -65,7 +65,7 @@ public class PlayerView : View<GameplayApp>
     }
     public void OnShootRope()
     {
-        addInitForce();   
+        //addInitForce();   
         OnSwingRope();
     }
     public void OnSwingRope()
