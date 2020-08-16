@@ -18,12 +18,6 @@ namespace PShop
                 Save();
         }
 
-        public void addItem(Item item)
-        {
-            Items.Add(item);
-            Save();
-        }
-
         private void Save()
         {
             SaveLoadHelper.Save("/shop", new ShopSaveModel() { items = Items });

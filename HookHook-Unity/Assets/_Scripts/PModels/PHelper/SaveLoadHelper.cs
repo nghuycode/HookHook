@@ -14,7 +14,7 @@ namespace PHelper
             string json = JsonUtility.ToJson(data);
             using (StreamWriter writer = new StreamWriter(file))
             {
-                writer.WriteLine(json);
+                writer.Write(json);
             }
             file.Close();
         }
