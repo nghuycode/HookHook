@@ -14,13 +14,13 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Particle
+  - Level
+  - Background
+  - Player
+  - Rope
+  - Trail
+  - Anchor
   - 
   - 
   - 
@@ -41,4 +41,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 655279317
+    locked: 0
+  - name: Rope
+    uniqueID: 306726321
+    locked: 0
+  - name: Trail
+    uniqueID: 1251660455
+    locked: 0
+  - name: Anchor
+    uniqueID: 1552965739
+    locked: 0
+  - name: Level
+    uniqueID: 3618604181
+    locked: 0
+  - name: Player
+    uniqueID: 2103742939
     locked: 0

@@ -18,18 +18,18 @@ public class GameManager : MonoBehaviour
     }
     #endregion
     #region Events and Actions
-    public event Action OnInitGame;
+    public event Action<int> OnInitGame;
     public event Action OnStartGame;
     public event Action OnPauseGame;
     public event Action OnWinGame;
     public event Action OnLoseGame;
 
-    public event Action OnUpdateProgressLevel;
+    public event Action<float> OnUpdateProgressLevel;
     public event Action OnUpdateGem;
-    public void InitGame()
+    public void InitGame(int currentLevel)
     {
         if (OnInitGame != null)
-            OnInitGame();
+            OnInitGame.Invoke(currentLevel);
     }
     public void StartGame()
     {
@@ -51,10 +51,10 @@ public class GameManager : MonoBehaviour
         if (OnLoseGame != null)
             OnLoseGame();
     }
-    public void UpdateProgressLevel()
+    public void UpdateProgressLevel(float percentage)
     {
         if (OnUpdateProgressLevel != null)
-            OnUpdateProgressLevel();
+            OnUpdateProgressLevel.Invoke(percentage);
     }
     public void UpdateGem()
     {

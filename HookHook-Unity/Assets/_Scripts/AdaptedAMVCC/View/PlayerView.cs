@@ -19,6 +19,8 @@ public class PlayerView : View<GameplayApp>
     private TrailRenderer trail;
     [SerializeField]
     private Vector3 trailOffset, ropeOffset;
+    [SerializeField]
+    private float borderLeft, borderRight, borderUp, borderDown;
 
     #region MONO BEHAVIOUR
     private void Awake()
@@ -29,6 +31,8 @@ public class PlayerView : View<GameplayApp>
         anim = this.GetComponent<Animator>();
         //rope = this.GetComponent<LineRenderer>();
         //trail = this.GetComponent<TrailRenderer>();
+
+        //Events subscribe
     }
     private void FixedUpdate()
     {
@@ -63,9 +67,21 @@ public class PlayerView : View<GameplayApp>
     {
         anim.SetBool("IsSwinging", app.model.PlayerModel.IsSwinging);
     }
+    private void checkPlayerOutBorder()
+    {
+        if (this.transform.position.y > borderUp || this.transform.position.y < borderDown)
+        {
+            //Lose
+            app.controller.PlayerController.PlayerLose();
+        }
+    }
+    private void checkPlayerProgressMap()
+    {
+        app.controller.PlayerController.UpdateProgressMap(this.transform.position.x / borderRight);
+    }
     public void OnShootRope()
     {
-        addInitForce();   
+        //addInitForce();   
         OnSwingRope();
     }
     public void OnSwingRope()
@@ -88,7 +104,14 @@ public class PlayerView : View<GameplayApp>
 
         AnchorManager.Instance.UnlockAnchor();
     }
+    public void OnPlayerWin()
+    {
 
+    }
+    public void OnPlayerLose()
+    {
+
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 441612831405416104}
   - component: {fileID: 441612831405416105}
   - component: {fileID: 441612831405416110}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Anchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,9 +71,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingLayerID: 1552965739
+  m_SortingLayer: 4
+  m_SortingOrder: 0
   m_Sprite: {fileID: 3685498581360820526, guid: b1e4634cc071bd042b0d416551ce802c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -154,7 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 975015785587450623}
   - component: {fileID: 7469759379769036633}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: LockRound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
