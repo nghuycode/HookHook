@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/DemoHook.unity
-    guid: f19d4b98a4fe13645b9c329d1dabba7c
+    path: Assets/_Scenes/LevelSelection.unity
+    guid: ed0daa88b27690c42beb2329a4221fd6
+  - enabled: 1
+    path: Assets/_Scenes/ShopMenu.unity
+    guid: b778a1b07b852f94196c235460019bf7
   m_configObjects: {}
