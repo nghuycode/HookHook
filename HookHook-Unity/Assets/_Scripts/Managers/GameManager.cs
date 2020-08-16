@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     {
         if (OnInitGame != null) 
             OnInitGame.Invoke(currentLevel);
+        Invoke("StartGame", 1.5f);
     }
     public void StartGame()
     {
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour
     {
         if (OnLoseGame != null)
             OnLoseGame();
+        Invoke("StartGame", 1.5f);
     }
     public void UpdateProgressLevel(float percentage)
     {

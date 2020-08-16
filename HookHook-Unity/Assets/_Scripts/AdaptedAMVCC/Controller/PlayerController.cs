@@ -8,6 +8,30 @@ public class PlayerController : Controller<GameplayApp>
     {
         InputHandler.Instance.OnTouchScreen += ShootRope;
         InputHandler.Instance.OnReleaseScreen += ReleaseRope;
+        GameManager.Instance.OnStartGame += ActivePlayer;
+        GameManager.Instance.OnWinGame += DeactivePlayer;
+        GameManager.Instance.OnLoseGame += DeactivePlayer;
+    }
+    public void ActivePlayer()
+    {
+        app.model.PlayerModel.CanPlay = true;
+
+        this.transform.position = app.model.PlayerModel.DefaultPosition;
+        app.view.PlayerView.sprite.enabled = true;
+        app.view.PlayerView.trail.enabled = true;
+        app.view.PlayerView.rope.enabled = true;
+        app.view.PlayerView.rb.gravityScale = 1;
+    }
+    public void DeactivePlayer()
+    {
+        app.model.PlayerModel.CanPlay = true;
+
+        this.transform.position = app.model.PlayerModel.DefaultPosition;
+        app.view.PlayerView.sprite.enabled = false;
+        app.view.PlayerView.trail.enabled = false;
+        app.view.PlayerView.rope.enabled = false;
+        app.view.PlayerView.rb.gravityScale = 0;
+        app.view.PlayerView.rb.velocity = Vector2.zero;
     }
     public void ShootRope()
     {

@@ -5,18 +5,14 @@ using UnityEngine;
 
 public class PlayerView : View<GameplayApp>
 {
-    [SerializeField]
-    private SpriteRenderer sprite;
-    [SerializeField]
-    private LineRenderer rope;
-    [SerializeField]
-    private Rigidbody2D rb;
+    public SpriteRenderer sprite;
+    public LineRenderer rope;
+    public TrailRenderer trail;
+    public Rigidbody2D rb;
     [SerializeField]
     private DistanceJoint2D distanceJoint;
     [SerializeField]
     private Animator anim;
-    [SerializeField]
-    private TrailRenderer trail;
     [SerializeField]
     private Vector3 trailOffset, ropeOffset;
     [SerializeField]
@@ -29,10 +25,6 @@ public class PlayerView : View<GameplayApp>
         distanceJoint = this.GetComponent<DistanceJoint2D>();
         sprite = this.GetComponent<SpriteRenderer>();
         anim = this.GetComponent<Animator>();
-        //rope = this.GetComponent<LineRenderer>();
-        //trail = this.GetComponent<TrailRenderer>();
-
-        //Events subscribe
     }
     private void FixedUpdate()
     {
@@ -46,10 +38,6 @@ public class PlayerView : View<GameplayApp>
     #endregion
 
     #region PLAYER VIEW BEHAVIOUR
-    private void initPlayer()
-    {
-
-    }
     private void flipWithVelocity()
     {
         if (rb.velocity.x >= 0)
