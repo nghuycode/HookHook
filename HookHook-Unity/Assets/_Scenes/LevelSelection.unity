@@ -2722,7 +2722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1650738102
 Transform:
   m_ObjectHideFlags: 0
@@ -2861,6 +2861,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4611d5b03127e114b8a266a811d8764b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentItem: 0
+  gridObject: []
+  shopGrid: []
   gridPrefab: {fileID: 6199747675054123813}
 --- !u!1 &1732702739
 GameObject:
@@ -3467,7 +3470,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2010390182
 Transform:
   m_ObjectHideFlags: 0
@@ -3821,8 +3824,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridID: 0
-  price: 0
-  isUnlock: 0
+  item:
+    Id: 0
+    Name: 
+    Price: 0
+  shopImg: {fileID: 0}
+  priceText: {fileID: 0}
+  shopManager: {fileID: 0}
 --- !u!1 &4840779765309575186
 GameObject:
   m_ObjectHideFlags: 0
