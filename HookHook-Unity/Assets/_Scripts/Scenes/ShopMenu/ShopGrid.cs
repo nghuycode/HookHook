@@ -17,7 +17,6 @@ public class ShopGrid : MonoBehaviour
     public ShopManager shopManager;
     public void Instance(Item _item)
     {
-        
         item = _item;
         curState = state.isLocked;
         //attach Img
@@ -38,8 +37,10 @@ public class ShopGrid : MonoBehaviour
 
     void BuyItem()
     {
+        
         if(DataRepository.User.Money >= item.Price)
         {
+            Debug.Log("mua dc");
             //Add item
             UnlockItem();
             DataRepository.User.Money -= item.Price;
