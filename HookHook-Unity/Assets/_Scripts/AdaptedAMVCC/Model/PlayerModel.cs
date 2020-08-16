@@ -6,7 +6,7 @@ public class PlayerModel : Model<GameplayApp>
 {
     public float Weight;
     public int SkinID;
-    public bool IsSwinging;
+    public bool IsSwinging, CanPlay;
     public enum Buff 
     { 
         

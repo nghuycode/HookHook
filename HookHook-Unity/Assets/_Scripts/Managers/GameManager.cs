@@ -16,6 +16,10 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
     }
+    private void Start()
+    {
+        InitGame(CurrentLevel);
+    }
     #endregion
     #region Events and Actions
     public event Action<int> OnInitGame;
@@ -28,7 +32,7 @@ public class GameManager : MonoBehaviour
     public event Action OnUpdateGem;
     public void InitGame(int currentLevel)
     {
-        if (OnInitGame != null)
+        if (OnInitGame != null) 
             OnInitGame.Invoke(currentLevel);
     }
     public void StartGame()

@@ -23,7 +23,7 @@ public class PlayerView : View<GameplayApp>
     private float borderLeft, borderRight, borderUp, borderDown;
 
     #region MONO BEHAVIOUR
-    private void Awake()
+    private void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         distanceJoint = this.GetComponent<DistanceJoint2D>();
@@ -36,12 +36,20 @@ public class PlayerView : View<GameplayApp>
     }
     private void FixedUpdate()
     {
-        flipWithVelocity();
-        animationPlayer();
+        if (app.model.PlayerModel.CanPlay)
+        {
+            flipWithVelocity();
+            animationPlayer();
+            checkPlayerOutBorder();
+        }
     }
     #endregion
 
     #region PLAYER VIEW BEHAVIOUR
+    private void initPlayer()
+    {
+
+    }
     private void flipWithVelocity()
     {
         if (rb.velocity.x >= 0)
@@ -118,14 +126,18 @@ public class PlayerView : View<GameplayApp>
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Award"))
+        if (app.model.PlayerModel.CanPlay)
         {
-            Debug.Log("Win Game");
+            if (collision.gameObject.CompareTag("Award"))
+            {
+                app.controller.PlayerController.PlayerWin();
+            }
         }
     }
     private Anchor FindNextAnchor()
     {
-        return AnchorManager.Instance.FindNearestAnchorWithPlayer(this.transform.position, app.model.PlayerModel.IsSwinging);
+        return AnchorManager.Instance? 
+            AnchorManager.Instance.FindNearestAnchorWithPlayer(this.transform.position, app.model.PlayerModel.IsSwinging) : null;
     }
     #endregion
 }

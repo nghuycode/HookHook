@@ -8,10 +8,10 @@ public class InGameSceneManager : MonoBehaviour
     private Vector3 playerDefaultPosition;
     private GameObject Player;
 
-    private void Awake() 
+    private void Start() 
     {
         Player = GameObject.Find("Player");
-        RenderLevel(0);    
+        GameManager.Instance.OnInitGame += RenderLevel;
     }
     public void RenderLevel(int id)
     {

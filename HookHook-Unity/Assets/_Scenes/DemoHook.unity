@@ -512,7 +512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 591150266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -25, y: 10, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 1406153554}
@@ -547,6 +547,7 @@ MonoBehaviour:
   Weight: 0
   SkinID: 0
   IsSwinging: 0
+  CanPlay: 1
 --- !u!114 &591150271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,6 +568,10 @@ MonoBehaviour:
   trail: {fileID: 626032522}
   trailOffset: {x: 0, y: 0, z: 0}
   ropeOffset: {x: -0.1, y: 0, z: 0}
+  borderLeft: 0
+  borderRight: 0
+  borderUp: 30
+  borderDown: -30
 --- !u!50 &591150272
 Rigidbody2D:
   serializedVersion: 4
