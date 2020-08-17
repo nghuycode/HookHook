@@ -8,5 +8,7 @@ namespace PUser
         public string Name;
         public int Money;
         public List<Item> Purchased;
+        public int Level;
+        public List<Item> Equipped;
     }
 }

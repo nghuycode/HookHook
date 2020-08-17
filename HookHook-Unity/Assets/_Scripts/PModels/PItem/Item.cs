@@ -8,5 +8,6 @@ namespace PItem
         public int Id = 0;
         public string Name = "";
         public int Price = 0;
+        public string Category = "";
     }
 }
