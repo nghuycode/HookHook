@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelPrefabList:
-  - {fileID: 7387802911683277782, guid: 2dec5afd78a4f8a44be618837bae7dc0, type: 3}
+  - {fileID: 8954785352708109808, guid: c009c5b84968f324c9cab7246c605aed, type: 3}
   - {fileID: 6868903948925844999, guid: df4e27cf24b247c4da4cb677c710e25d, type: 3}
   - {fileID: 0}
   - {fileID: 0}
@@ -584,7 +584,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 0.7
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -1589,7 +1589,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810716490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4, y: -0.4, z: 10}
+  m_LocalPosition: {x: 1.4, y: -0.4, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1479645961}

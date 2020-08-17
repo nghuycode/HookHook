@@ -6,16 +6,24 @@ public class Animation : MonoBehaviour
 {
     //adjust this to change speed
     [SerializeField]
-    float speed = 5f;
+    float speedMin = 1f;
+    [SerializeField]
+    float SpeedMax = 5f;
     //adjust this to change how high it goes
     [SerializeField]
-    float height = 0.5f;
+    float HeightMin = 0.5f;
+    [SerializeField]
+    float HeightMax = 1f;
+    private float speed;
+    private float height;
 
     Vector3 pos;
 
     private void Start()
     {
         pos = transform.position;
+        speed = Random.Range(speedMin,SpeedMax);
+        height = Random.Range(HeightMin,HeightMax);
     }
     void Update()
     {
