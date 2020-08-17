@@ -13,6 +13,9 @@ namespace PUser
         public string Name = "";
         public int Money = 0;
         public List<Item> Purchased = new List<Item>();
+        public int Level = 0;
+        public List<Item> Equipped = new List<Item>();
+
         public User()
         {
             string data = SaveLoadHelper.Load("/user");
@@ -22,6 +25,8 @@ namespace PUser
                 this.Name = tmp.Name;
                 this.Money = tmp.Money;
                 this.Purchased = tmp.Purchased;
+                this.Level = tmp.Level;
+                this.Equipped = tmp.Equipped;
             }
             else
                 Save();
@@ -37,5 +42,13 @@ namespace PUser
         {
             SaveLoadHelper.Save("/user", this);
         }
+
+        public void addItem(Item item)
+        {
+            Purchased.Add(item);
+            Save();
+        }
+
+
     }
 }
