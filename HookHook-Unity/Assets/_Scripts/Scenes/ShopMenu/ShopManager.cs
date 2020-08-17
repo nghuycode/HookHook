@@ -11,7 +11,7 @@ public class ShopManager : MonoBehaviour
     public int currentItem;
     public List<GameObject> gridObject;
     public List<ShopGrid> shopGrid;
-    GameObject shopPanel;
+    GameObject skinPanel;
     public GameObject gridPrefab;
 
 
@@ -20,10 +20,10 @@ public class ShopManager : MonoBehaviour
         ToTalItems = DataRepository.Shop.Items.Count;
         gridObject = new List<GameObject>(ToTalItems);
         shopGrid = new List<ShopGrid>(ToTalItems);
-        shopPanel = GameObject.Find("ShopPanel");
+        skinPanel = GameObject.Find("SkinPanel");
         for (int i = 0; i < ToTalItems; i++)
         {
-            InstantiateIn(ref gridObject, i, shopPanel);
+            InstantiateIn(ref gridObject, i, skinPanel);
             shopGrid.Add(gridObject[i].GetComponent<ShopGrid>());
             SetGridInfo(i);
         }

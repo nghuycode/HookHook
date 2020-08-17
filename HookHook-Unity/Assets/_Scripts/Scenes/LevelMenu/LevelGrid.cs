@@ -7,7 +7,7 @@ public class LevelGrid : MonoBehaviour
 {
     public int gridID;
     public bool isUnlock;
-    
+    public Text levelText;
     public LevelGrid(int _gridID,bool _isUnlock)
     {
         gridID = _gridID;
@@ -22,6 +22,7 @@ public class LevelGrid : MonoBehaviour
 
     public void UnlockLevel()
     {
+        levelText.text = (gridID + 1).ToString();
         isUnlock = true;
         this.GetComponent<Button>().enabled = true;
         this.gameObject.GetComponent<Image>().sprite = GameObject.Find("GridActiveModel").GetComponent<Image>().sprite;

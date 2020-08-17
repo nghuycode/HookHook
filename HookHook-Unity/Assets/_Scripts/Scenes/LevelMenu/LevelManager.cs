@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PModels;
 
 public class LevelManager : MonoBehaviour
 {
@@ -36,9 +37,6 @@ public class LevelManager : MonoBehaviour
 
     void GridsInstantiate()
     {
-        
-
-
         for (int i = 0; i < userLevel; i++)
             levelGrid[i].UnlockLevel();
     }
@@ -57,7 +55,7 @@ public class LevelManager : MonoBehaviour
 
     int GetUserLevel()
     {
-        int userLevel = 0;//Recieved from User
+        int userLevel = DataRepository.User.Level;
         return userLevel;
     }
 }
