@@ -5,7 +5,8 @@ using UnityEngine.UI;
 using PItem;
 using PShop;
 using PUser;
-using PModels;
+using PHelper;
+
 
 
 public class ShopBgManager : ShopPanelManager
@@ -13,7 +14,9 @@ public class ShopBgManager : ShopPanelManager
     void Awake()
     {
         isSelect = false;
-        ToTalItems = DataRepository.Shop.Items.Count;
+        user = UserRepository.User;
+        shopItems = ShopRepository.Shop.Items.GetBackgrounds();
+        ToTalItems = shopItems.Count;
         gridObject = new List<GameObject>(ToTalItems);
         shopGrid = new List<ShopGrid>(ToTalItems);
         for (int i = 0; i < ToTalItems; i++)
@@ -26,6 +29,7 @@ public class ShopBgManager : ShopPanelManager
 
     void OnEnable()
     {
+        Invoke("DeActivePanel", 0.0001f);
         GridsInstantiate();
     }
 }

@@ -5,11 +5,12 @@ using UnityEngine.UI;
 using PItem;
 using PShop;
 using PUser;
-using PModels;
 
 
 public class ShopPanelManager : MonoBehaviour
 {
+    protected List<Item> shopItems;
+    protected User user;
     protected int ToTalItems; //Total number of items in shop
     public int currentItem;
     public List<GameObject> gridObject;
@@ -21,30 +22,35 @@ public class ShopPanelManager : MonoBehaviour
 
     public void ActivePanel()
     {
-
+        SetButtonOpacity(tabButton, 1f);
         isSelect = true;
         Panel.SetActive(true);
     }
 
     public void DeActivePanel()
     {
+        SetButtonOpacity(tabButton, 0.6f);
         isSelect = false;
         Panel.SetActive(false);
     }
 
+    void SetButtonOpacity(Button button,float opacity)
+    {
+        Color temp = button.image.color;
+        temp.a = opacity;
+        button.image.color = temp;
+    }
    
     protected void GridsInstantiate()
     {
-        List<Item> items;
-        items = DataRepository.Shop.Items;
 
         for (int i = 0; i < ToTalItems; i++)
-            shopGrid[i].Instance(items[i]);
+            shopGrid[i].Instance(shopItems[i]);
         
         for (int i = 0;i < ToTalItems;i++)
-            for(int j = 0;j < DataRepository.User.Purchased.Count;j++)
+            for(int j = 0;j < user.Purchased.Count;j++)
             {
-                if (items[i].Id == DataRepository.User.Purchased[j].Id)
+                if (shopItems[i].Id == user.Purchased[j].Id)
                     shopGrid[i].UnlockItem();
             }
             
@@ -55,13 +61,15 @@ public class ShopPanelManager : MonoBehaviour
     {
 
         shopGrid[id].gridID = id;
+        shopGrid[id].baseManager = this;
     }
 
     protected void InstantiateIn(ref List<GameObject> listGameobject,int id, GameObject fatherGameobject)
     {
+        
         GameObject newGameobject = Instantiate(gridPrefab);
         newGameobject.name = "Grid" + id.ToString();
-        newGameobject.transform.parent = fatherGameobject.transform;
+        newGameobject.transform.SetParent(fatherGameobject.transform);
         listGameobject.Add(newGameobject);
     }
     

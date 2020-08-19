@@ -7,7 +7,7 @@ namespace PUser
     {
         private static User _user;
 
-        public static User _User
+        public static User User
         {
             get {
                 if (_user == null)

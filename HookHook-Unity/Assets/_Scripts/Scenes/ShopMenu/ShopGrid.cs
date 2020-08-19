@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using PItem;
 using PUser;
-using PModels;
+
 
 public class ShopGrid : MonoBehaviour
 {
@@ -14,6 +14,7 @@ public class ShopGrid : MonoBehaviour
     public Item item;
     public Image shopImg;
     public Text priceText;
+    public ShopPanelManager baseManager;
     public void Instance(Item _item)
     {
         
@@ -30,19 +31,19 @@ public class ShopGrid : MonoBehaviour
         }
         else if(curState == state.isUnselect)
         {
-           // shopManager.shopGrid[shopManager.currentItem].DeSelectItem(); //Get
+            baseManager.shopGrid[baseManager.currentItem].DeSelectItem(); //Get
             SelectItem();
         }
     }
 
     void BuyItem()
     {
-        if(DataRepository.User.Money >= item.Price)
+        if(UserRepository.User.Money >= item.Price)
         {
           
             //Add item
             UnlockItem();
-            DataRepository.User.Money -= item.Price;
+            UserRepository.User.Money -= item.Price;
         }
     }
 
@@ -57,7 +58,7 @@ public class ShopGrid : MonoBehaviour
     public void SelectItem()
     {
    
-      //  shopManager.currentItem = gridID;
+        baseManager.currentItem = gridID;
         curState = state.isSelect;
         priceText.text = "IsSelect".ToString();
         this.gameObject.GetComponent<Button>().enabled = false;

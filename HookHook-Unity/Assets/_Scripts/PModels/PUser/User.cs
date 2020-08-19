@@ -5,6 +5,7 @@ using UnityEditor.Build;
 
 namespace PUser
 {
+    [Serializable]
     public class User
     {
         public string Name;

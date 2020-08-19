@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ShopRopeButton : MonoBehaviour
 {
+    public ShopSelection shopSelection;
     public void OnClick()
     {
-
+        shopSelection.SelectRopePanel();
     }
 }

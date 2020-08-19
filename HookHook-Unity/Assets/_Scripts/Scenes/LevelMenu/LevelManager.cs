@@ -1,8 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using PModels;
-
+using PUser;
 public class LevelManager : MonoBehaviour
 {
     const int totalLevel = 9; //Total number of levels
@@ -50,12 +49,12 @@ public class LevelManager : MonoBehaviour
     void InstantiateIn(ref GameObject newGameobject,GameObject fatherGameobject)
     {
         newGameobject = Instantiate(gridPrefab);
-        newGameobject.transform.parent = fatherGameobject.transform;
+        newGameobject.transform.SetParent(fatherGameobject.transform);
     }
 
     int GetUserLevel()
     {
-        int userLevel = DataRepository.User.Level;
+        int userLevel = UserRepository.User.Level;
         return userLevel;
     }
 }
