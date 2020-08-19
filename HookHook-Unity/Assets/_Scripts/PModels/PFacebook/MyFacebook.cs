@@ -7,6 +7,7 @@ namespace PFacebook
 {
     public class MyFacebook
     {
+        List<string> permissions = new List<string>() { "public_profile", "email"};
         public MyFacebook()
         {
             if (!FB.IsInitialized)
@@ -14,8 +15,6 @@ namespace PFacebook
                 {
                     if (FB.IsInitialized)
                         FB.ActivateApp();
-                    else
-                        Debug.LogError("NO FB");
                 },
                 isGameShown =>
                 {
@@ -30,7 +29,6 @@ namespace PFacebook
 
         public void Login()
         {
-            var permissions = new List<string>() { "public_profile", "email", "user_friends" };
             FB.LogInWithReadPermissions(permissions);
         }
 
@@ -55,6 +53,7 @@ namespace PFacebook
             FB.API(query, HttpMethod.GET, result =>
             {
                 var dictionary = (Dictionary<string, object>)Facebook.MiniJSON.Json.Deserialize(result.RawResult);
+                Debug.Log(result.RawResult);
                 var friendList = (List<object>)dictionary["data"];
             });
         }
