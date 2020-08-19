@@ -14,6 +14,7 @@ public class PlayerController : Controller<GameplayApp>
     }
     public void ActivePlayer()
     {
+        Debug.Log("active");
         app.model.PlayerModel.CanPlay = true;
 
         this.transform.position = app.model.PlayerModel.DefaultPosition;
@@ -24,7 +25,8 @@ public class PlayerController : Controller<GameplayApp>
     }
     public void DeactivePlayer()
     {
-        app.model.PlayerModel.CanPlay = true;
+        Debug.Log("deactive");
+        app.model.PlayerModel.CanPlay = false;
 
         this.transform.position = app.model.PlayerModel.DefaultPosition;
         app.view.PlayerView.sprite.enabled = false;

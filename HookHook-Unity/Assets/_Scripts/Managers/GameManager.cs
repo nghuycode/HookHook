@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public event Action OnPauseGame;
     public event Action OnWinGame;
     public event Action OnLoseGame;
+    public event Action OnNextGame;
 
     public event Action<float> OnUpdateProgressLevel;
     public event Action OnUpdateGem;
@@ -50,12 +51,17 @@ public class GameManager : MonoBehaviour
     {
         if (OnWinGame != null)
             OnWinGame();
+        NextGame();
     }
     public void LoseGame()
     {
         if (OnLoseGame != null)
             OnLoseGame();
         Invoke("StartGame", 1.5f);
+    }
+    public void NextGame()
+    {
+        InitGame(CurrentLevel++);
     }
     public void UpdateProgressLevel(float percentage)
     {
