@@ -1,4 +1,5 @@
 ﻿using PHelper;
+using PItem;
 using UnityEngine;
 
 namespace PUser
@@ -7,7 +8,7 @@ namespace PUser
     {
         private static User _user;
 
-        public static User _User
+        public static User User
         {
             get {
                 if (_user == null)
@@ -26,8 +27,30 @@ namespace PUser
             }
             set {
                 _user = value;
-                SaveLoadHelper.Save("/user", _user);
+                Save();
             }
+        }
+
+        private static void Save()
+        {
+            SaveLoadHelper.Save("/user", _user);
+        }
+
+        public static void AddMoney(int money)
+        {
+            _user.Money += money;
+            Save();
+        }
+        public static bool Buy(Item item)
+        {
+            if (_user.Money >= item.Price)
+            {
+                _user.Money -= item.Price;
+                _user.Purchased.Add(item);
+                Save();
+                return true;
+            }
+            return false;
         }
 
     }

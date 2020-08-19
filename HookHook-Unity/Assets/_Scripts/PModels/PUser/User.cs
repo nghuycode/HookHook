@@ -1,7 +1,6 @@
 using PItem;
 using System;
 using System.Collections.Generic;
-using UnityEditor.Build;
 
 namespace PUser
 {
@@ -12,6 +11,7 @@ namespace PUser
         public int Money;
         public List<Item> Purchased;
         public int Level;
+        public int currentLevel;
         public Skin currentSkin;
         public Background currentBackground;
         public Rope currentRope;

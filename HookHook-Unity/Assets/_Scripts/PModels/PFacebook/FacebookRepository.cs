@@ -1,6 +1,6 @@
 ﻿namespace PFacebook
 {
-    public class FacebookRepository
+    public static class FacebookRepository
     {
         static private MyFacebook myFacebook;
         public static MyFacebook MyFacebook
