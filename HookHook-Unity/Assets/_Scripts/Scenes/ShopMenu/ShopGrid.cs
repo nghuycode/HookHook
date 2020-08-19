@@ -14,7 +14,6 @@ public class ShopGrid : MonoBehaviour
     public Item item;
     public Image shopImg;
     public Text priceText;
-    public ShopManager shopManager;
     public void Instance(Item _item)
     {
         
@@ -31,7 +30,7 @@ public class ShopGrid : MonoBehaviour
         }
         else if(curState == state.isUnselect)
         {
-            shopManager.shopGrid[shopManager.currentItem].DeSelectItem(); //Get
+           // shopManager.shopGrid[shopManager.currentItem].DeSelectItem(); //Get
             SelectItem();
         }
     }
@@ -58,7 +57,7 @@ public class ShopGrid : MonoBehaviour
     public void SelectItem()
     {
    
-        shopManager.currentItem = gridID;
+      //  shopManager.currentItem = gridID;
         curState = state.isSelect;
         priceText.text = "IsSelect".ToString();
         this.gameObject.GetComponent<Button>().enabled = false;

@@ -1,44 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using PItem;
 using PShop;
 using PUser;
 using PModels;
-public class ShopManager : MonoBehaviour
+
+
+public class ShopPanelManager : MonoBehaviour
 {
-    int ToTalItems; //Total number of items in shop
+    protected int ToTalItems; //Total number of items in shop
     public int currentItem;
     public List<GameObject> gridObject;
     public List<ShopGrid> shopGrid;
-    GameObject skinPanel;
+    public GameObject Panel;
     public GameObject gridPrefab;
+    public Button tabButton;
+    protected bool isSelect;
 
-
-    void Awake()
+    public void ActivePanel()
     {
-        ToTalItems = DataRepository.Shop.Items.Count;
-        gridObject = new List<GameObject>(ToTalItems);
-        shopGrid = new List<ShopGrid>(ToTalItems);
-        skinPanel = GameObject.Find("SkinPanel");
-        for (int i = 0; i < ToTalItems; i++)
-        {
-            InstantiateIn(ref gridObject, i, skinPanel);
-            shopGrid.Add(gridObject[i].GetComponent<ShopGrid>());
-            SetGridInfo(i);
-        }
-      
+
+        isSelect = true;
+        Panel.SetActive(true);
     }
 
-
-    void OnEnable()
+    public void DeActivePanel()
     {
-        GridsInstantiate();
+        isSelect = false;
+        Panel.SetActive(false);
     }
-    
- 
+
    
-    void GridsInstantiate()
+    protected void GridsInstantiate()
     {
         List<Item> items;
         items = DataRepository.Shop.Items;
@@ -56,13 +51,13 @@ public class ShopManager : MonoBehaviour
             
     }
 
-    void SetGridInfo(int id)
+    protected void SetGridInfo(int id)
     {
 
         shopGrid[id].gridID = id;
     }
 
-    void InstantiateIn(ref List<GameObject> listGameobject,int id, GameObject fatherGameobject)
+    protected void InstantiateIn(ref List<GameObject> listGameobject,int id, GameObject fatherGameobject)
     {
         GameObject newGameobject = Instantiate(gridPrefab);
         newGameobject.name = "Grid" + id.ToString();
