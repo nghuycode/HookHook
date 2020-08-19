@@ -55,17 +55,23 @@ namespace PUser
 
         public static Item Select(Item item)
         {
-            Item ret;
+            Item ret = new Item();
             switch (item.Category)
             {
                 case "Skin":        
-                    ret = _user.currentSkin; 
+                    ret = _user.currentSkin;
+                    _user.currentSkin = item;
+                    Save();
                     break;
                 case "Background":
                     ret = _user.currentBackground;
+                    _user.currentBackground = item;
+                    Save();
                     break;
                 case "Rope":
                     ret = _user.currentRope;
+                    _user.currentRope = item;
+                    Save();
                     break;
             }
             return ret;

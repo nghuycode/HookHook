@@ -12,8 +12,8 @@ namespace PUser
         public List<Item> Purchased;
         public int Level;
         public int currentLevel;
-        public Skin currentSkin;
-        public Background currentBackground;
-        public Rope currentRope;
+        public Item currentSkin;
+        public Item currentBackground;
+        public Item currentRope;
     }
 }
