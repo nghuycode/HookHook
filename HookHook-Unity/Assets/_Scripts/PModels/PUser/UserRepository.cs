@@ -53,5 +53,22 @@ namespace PUser
             return false;
         }
 
+        public static Item Select(Item item)
+        {
+            Item ret;
+            switch (item.Category)
+            {
+                case "Skin":        
+                    ret = _user.currentSkin; 
+                    break;
+                case "Background":
+                    ret = _user.currentBackground;
+                    break;
+                case "Rope":
+                    ret = _user.currentRope;
+                    break;
+            }
+            return ret;
+        }
     }
 }
