@@ -1,9 +1,6 @@
-﻿using PHelper;
-using UnityEngine;
-
-namespace PShop
+﻿namespace PShop
 {
-    class ShopRepository
+    public static class ShopRepository
     {
         private static Shop _shop;
         public static Shop Shop
