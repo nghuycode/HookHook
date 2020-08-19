@@ -53,8 +53,15 @@ public class ShopPanelManager : MonoBehaviour
                 if (shopItems[i].Id == user.Purchased[j].Id)
                     shopGrid[i].UnlockItem();
             }
-            
-            
+      
+    }
+
+    public int GetGridIndex(int id)
+    {
+        for (int i = 0; i < ToTalItems; i++)
+            if (id == shopGrid[i].gridID)
+                return i;
+        return 0;
     }
 
     protected void SetGridInfo(int id)

@@ -30,6 +30,7 @@ public class SkinPanelManager : ShopPanelManager
     {
         Invoke("ActivePanel", 0.0001f);
         GridsInstantiate();
+        shopGrid[GetGridIndex(user.currentSkin.Id)].SelectItem();
     }
 
 }

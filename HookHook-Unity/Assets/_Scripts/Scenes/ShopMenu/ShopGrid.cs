@@ -38,12 +38,9 @@ public class ShopGrid : MonoBehaviour
 
     void BuyItem()
     {
-        if(UserRepository.User.Money >= item.Price)
+        if(UserRepository.Buy(item))
         {
-          
-            //Add item
             UnlockItem();
-            UserRepository.User.Money -= item.Price;
         }
     }
 
@@ -57,7 +54,6 @@ public class ShopGrid : MonoBehaviour
 
     public void SelectItem()
     {
-   
         baseManager.currentItem = gridID;
         curState = state.isSelect;
         priceText.text = "IsSelect".ToString();

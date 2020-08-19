@@ -19,6 +19,7 @@ namespace PShop
                         _shop = new Shop();
                     }  
                 }
+                SaveLoadHelper.Save("/shop", _shop);
                 return _shop;
             }
             set {

@@ -31,5 +31,6 @@ public class ShopBgManager : ShopPanelManager
     {
         Invoke("DeActivePanel", 0.0001f);
         GridsInstantiate();
+        shopGrid[GetGridIndex(user.currentBackground.Id)].SelectItem();
     }
 }
