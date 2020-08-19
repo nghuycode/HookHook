@@ -34,9 +34,10 @@ public class SkinPanelManager : ShopPanelManager
 
     void Initialization()
     {
-        DeActivePanel();
+        user = UserRepository.User;
+        ActivePanel();
         GridsInstantiate();
-        shopGrid[GetGridIndex(user.currentBackground.Id)].SelectItem();
+        shopGrid[GetGridIndex(user.currentSkin.Id)].SelectItem();
     }
 
 }

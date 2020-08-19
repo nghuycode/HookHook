@@ -23,6 +23,7 @@ namespace PUser
                         _user = new User();
                     }
                 }
+                Save();
                 return _user;
             }
             set {

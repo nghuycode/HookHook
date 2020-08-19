@@ -29,8 +29,16 @@ public class ShopBgManager : ShopPanelManager
 
     void OnEnable()
     {
-        Invoke("DeActivePanel", 0.0001f);
+        Invoke("Initialization", 0.0001f);
+
+    }
+
+    void Initialization()
+    {
+       // user = UserRepository.User;
+        DeActivePanel();
         GridsInstantiate();
         shopGrid[GetGridIndex(user.currentBackground.Id)].SelectItem();
     }
+
 }

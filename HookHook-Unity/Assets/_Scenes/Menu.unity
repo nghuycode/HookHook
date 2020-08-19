@@ -6873,8 +6873,9 @@ MonoBehaviour:
     Name: 
     Price: 0
     Category: 
-  coin: {fileID: 656370132}
-  glow: {fileID: 21703619}
+  notBought: {fileID: 1048567603}
+  isBought: {fileID: 2088528392}
+  isSelect: {fileID: 783187987}
   shopImg: {fileID: 1116404049}
   priceText: {fileID: 1371941613}
   baseManager: {fileID: 0}
