@@ -39,15 +39,15 @@ namespace PUser
 
         public static void AddMoney(int money)
         {
-            _user.Money += money;
+            User.Money += money;
             Save();
         }
         public static bool Buy(Item item)
         {
-            if (_user.Money >= item.Price)
+            if (User.Money >= item.Price)
             {
-                _user.Money -= item.Price;
-                _user.Purchased.Add(item);
+                User.Money -= item.Price;
+                User.Purchased.Add(item);
                 Save();
                 return true;
             }
@@ -60,18 +60,18 @@ namespace PUser
             switch (item.Category)
             {
                 case "Skin":        
-                    ret = _user.currentSkin;
-                    _user.currentSkin = item;
+                    ret = User.currentSkin;
+                    User.currentSkin = item;
                     Save();
                     break;
                 case "Background":
-                    ret = _user.currentBackground;
-                    _user.currentBackground = item;
+                    ret = User.currentBackground;
+                    User.currentBackground = item;
                     Save();
                     break;
                 case "Rope":
-                    ret = _user.currentRope;
-                    _user.currentRope = item;
+                    ret = User.currentRope;
+                    User.currentRope = item;
                     Save();
                     break;
             }
