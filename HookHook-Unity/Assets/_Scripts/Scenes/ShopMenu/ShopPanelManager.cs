@@ -12,7 +12,6 @@ public class ShopPanelManager : MonoBehaviour
     protected List<Item> shopItems;
     protected User user;
     protected int ToTalItems; //Total number of items in shop
-    public int currentItem;
     public List<GameObject> gridObject;
     public List<ShopGrid> shopGrid;
     public GameObject Panel;

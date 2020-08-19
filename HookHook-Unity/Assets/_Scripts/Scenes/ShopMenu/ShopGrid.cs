@@ -12,6 +12,7 @@ public class ShopGrid : MonoBehaviour
     public enum state { isLocked,isSelect,isUnselect};
     public state curState;
     public Item item;
+    public GameObject notBought, isBought, isSelect;
     public Image shopImg;
     public Text priceText;
     public ShopPanelManager baseManager;
@@ -31,7 +32,8 @@ public class ShopGrid : MonoBehaviour
         }
         else if(curState == state.isUnselect)
         {
-            baseManager.shopGrid[baseManager.currentItem].DeSelectItem(); //Get
+            Debug.Log(UserRepository.Select(item));
+           // baseManager.shopGrid[UserRepository.Select(item).Id].DeSelectItem(); //Get
             SelectItem();
         }
     }
@@ -48,21 +50,26 @@ public class ShopGrid : MonoBehaviour
     public void UnlockItem()
     {
         curState = state.isUnselect;
-        priceText.text = "Choose".ToString();
+        priceText.text = "USE".ToString();
+        isBought.SetActive(true);
+        notBought.SetActive(false);
         //Change Img
     }
 
     public void SelectItem()
     {
-        baseManager.currentItem = gridID;
         curState = state.isSelect;
+        isSelect.SetActive(true);
+        isBought.SetActive(false);
         priceText.text = "IsSelect".ToString();
         this.gameObject.GetComponent<Button>().enabled = false;
     }
 
     public void DeSelectItem()
     {
-        curState = state.isUnselect; 
+        curState = state.isUnselect;
+        isSelect.SetActive(false);
+        isBought.SetActive(true);
         priceText.text = "Choose".ToString();
         this.gameObject.GetComponent<Button>().enabled = true;
     }
