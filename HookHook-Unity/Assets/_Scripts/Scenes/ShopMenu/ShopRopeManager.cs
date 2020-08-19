@@ -29,10 +29,17 @@ public class ShopRopeManager : ShopPanelManager
 
     void OnEnable()
     {
-        Invoke("DeActivePanel", 0.0001f);
-        GridsInstantiate(); 
+        Invoke("Initialization", 0.0001f);
+
+    }
+
+    void Initialization()
+    {
+        DeActivePanel();
+        GridsInstantiate();
         shopGrid[GetGridIndex(user.currentRope.Id)].SelectItem();
     }
-    
+
+
 
 }

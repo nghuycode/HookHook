@@ -28,9 +28,15 @@ public class SkinPanelManager : ShopPanelManager
 
     void OnEnable()
     {
-        Invoke("ActivePanel", 0.0001f);
+        Invoke("Initialization", 0.0001f);
+
+    }
+
+    void Initialization()
+    {
+        DeActivePanel();
         GridsInstantiate();
-        shopGrid[GetGridIndex(user.currentSkin.Id)].SelectItem();
+        shopGrid[GetGridIndex(user.currentBackground.Id)].SelectItem();
     }
 
 }

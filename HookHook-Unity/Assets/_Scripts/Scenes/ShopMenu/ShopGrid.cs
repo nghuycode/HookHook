@@ -32,8 +32,7 @@ public class ShopGrid : MonoBehaviour
         }
         else if(curState == state.isUnselect)
         {
-            Debug.Log(UserRepository.Select(item));
-           // baseManager.shopGrid[UserRepository.Select(item).Id].DeSelectItem(); //Get
+            baseManager.shopGrid[UserRepository.Select(item).Id].DeSelectItem(); //Get
             SelectItem();
         }
     }
