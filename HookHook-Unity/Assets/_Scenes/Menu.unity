@@ -242,18 +242,6 @@ MonoBehaviour:
     Name: 
     Price: 200
     Category: Skin
-  - Id: 2
-    Name: 
-    Price: 300
-    Category: Skin
-  - Id: 3
-    Name: 
-    Price: 300
-    Category: Skin
-  - Id: 2
-    Name: 
-    Price: 300
-    Category: Skin
   - Id: 61
     Name: 
     Price: 300
@@ -582,7 +570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &117380046
 Transform:
   m_ObjectHideFlags: 0
@@ -2546,7 +2534,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6373414378592627891, guid: 67dc9e3ef3cdf934a9fa8645379ebaa4,
+  m_Sprite: {fileID: 3573091316277889389, guid: c82992614dd77fe4eb642a9329014dd2,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -3023,7 +3011,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6373414378592627891, guid: 67dc9e3ef3cdf934a9fa8645379ebaa4,
+  m_Sprite: {fileID: -6995201403419865076, guid: c82992614dd77fe4eb642a9329014dd2,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -6202,7 +6190,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1650738102
 Transform:
   m_ObjectHideFlags: 0
@@ -6600,7 +6588,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6373414378592627891, guid: 67dc9e3ef3cdf934a9fa8645379ebaa4,
+  m_Sprite: {fileID: -7923083902793716777, guid: c82992614dd77fe4eb642a9329014dd2,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -8689,7 +8677,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6373414378592627891, guid: 67dc9e3ef3cdf934a9fa8645379ebaa4,
+  m_Sprite: {fileID: 2901343459053143636, guid: c82992614dd77fe4eb642a9329014dd2,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
