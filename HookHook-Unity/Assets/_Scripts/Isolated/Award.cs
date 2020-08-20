@@ -18,7 +18,7 @@ public class Award : MonoBehaviour
     public void OnStartGame()
     {
         this.transform.SetParent(null);
-        this.transform.position = defaultPosition;
+        //this.transform.position = defaultPosition;
     }
     public void OnWinGame()
     {

@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        CurrentLevel = PlayerPrefs.GetInt("CurrentLevel");
         InitGame(CurrentLevel);
     }
     #endregion
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
     public event Action OnUpdateGem;
 
     public void InitGame(int currentLevel)
-    {
+    { 
         if (OnInitGame != null) 
             OnInitGame.Invoke(currentLevel);
         Invoke("StartGame", 1.5f);
@@ -62,6 +63,10 @@ public class GameManager : MonoBehaviour
     {
         if (OnLoseGame != null)
             OnLoseGame();
+    }
+    public void RestartGame()
+    {
+        InitGame(CurrentLevel);
     }
     public void NextGame()
     {

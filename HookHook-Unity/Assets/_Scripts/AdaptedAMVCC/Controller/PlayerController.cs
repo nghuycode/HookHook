@@ -9,10 +9,14 @@ public class PlayerController : Controller<GameplayApp>
         InputHandler.Instance.OnTouchScreen += ShootRope;
         InputHandler.Instance.OnReleaseScreen += ReleaseRope;
         GameManager.Instance.OnStartGame += ActivePlayer;
-        //GameManager.Instance.OnWinGame += DeactivePlayer;
+        GameManager.Instance.OnInitGame += ResetPlayer;
         GameManager.Instance.OnLoseGame += DeactivePlayer;
         GameManager.Instance.OnPauseGame += DisableCanPlay;
         GameManager.Instance.OnResumeGame += EnableCanPlay;
+    }
+    public void ResetPlayer(int currentLevel)
+    {
+        DeactivePlayer();
     }
     public void ActivePlayer()
     {
@@ -21,7 +25,7 @@ public class PlayerController : Controller<GameplayApp>
         this.transform.position = app.model.PlayerModel.DefaultPosition;
         app.view.PlayerView.sprite.enabled = true;
         app.view.PlayerView.trail.enabled = true;
-        app.view.PlayerView.rope.enabled = true;
+        //app.view.PlayerView.rope.enabled = true;
         app.view.PlayerView.rb.gravityScale = 1;
     }
     public void DeactivePlayer()
