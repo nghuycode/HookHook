@@ -52,7 +52,7 @@ public class PlayerView : View<GameplayApp>
     }
     private void addInitForce()
     {
-        float forceScale = 50;
+        float forceScale = 5;
         if (!sprite.flipX)
             rb.AddForce(Vector2.right * forceScale, ForceMode2D.Impulse);
         else
@@ -76,7 +76,7 @@ public class PlayerView : View<GameplayApp>
     }
     public void OnShootRope()
     {
-        //addInitForce();   
+        addInitForce();   
         OnSwingRope();
     }
     public void OnSwingRope()
