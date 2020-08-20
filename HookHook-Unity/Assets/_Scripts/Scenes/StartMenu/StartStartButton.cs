@@ -6,7 +6,7 @@ public class StartStartButton : MonoBehaviour
 {
     public void OnClick()
     {
-        SceneManager.SM.StartMenuToLevelMenu();
+        SceneSystem.SM.StartMenuToLevelMenu();
 
     }
 }

@@ -14,7 +14,7 @@ namespace PUser
             new Item {Id=30, Name="Default Background",Price=0,Category="Background" },
             new Item {Id=60, Name="Default Rope",Price=0,Category="Rope" }
         };
-        public int Level;
+        public int Level = 1;
         public int currentLevel;
         public Item currentSkin = new Item { Id = 0, Name = "Default Skin", Price = 0, Category = "Skin" };
         public Item currentBackground = new Item { Id = 30, Name = "Default Background", Price = 0, Category = "Background" };

@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class SceneManager : MonoBehaviour
+public class SceneSystem : MonoBehaviour
 {
     public GameObject StartMenu, ShopMenu, LevelMenu, SettingsMenu;
   
-    public static SceneManager SM;
+    public static SceneSystem SM;
 
     void Awake()
     {
@@ -55,7 +56,8 @@ public class SceneManager : MonoBehaviour
 
     public void LevelMenuToGameMenu()
     {
-      
+        DeactivateScene(LevelMenu);
+        SceneManager.LoadScene("DemoHook");
     }
 
     public void GameMenuToLevelMenu()

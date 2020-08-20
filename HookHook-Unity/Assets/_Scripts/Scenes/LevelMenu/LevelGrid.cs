@@ -17,7 +17,8 @@ public class LevelGrid : MonoBehaviour
 
     public void OnClick()
     {
-        Debug.Log(gridID);
+        PlayerPrefs.SetInt("CurrentLevel", gridID);
+        SceneSystem.SM.LevelMenuToGameMenu();
     }
 
     public void UnlockLevel()
