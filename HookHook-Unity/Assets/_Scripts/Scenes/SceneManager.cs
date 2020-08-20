@@ -5,6 +5,7 @@ using UnityEngine;
 public class SceneManager : MonoBehaviour
 {
     public GameObject StartMenu, ShopMenu, LevelMenu, SettingsMenu;
+  
     public static SceneManager SM;
 
     void Awake()
@@ -71,13 +72,15 @@ public class SceneManager : MonoBehaviour
     
     void ActivateScene(GameObject targetScene)
     {
+        targetScene.SetActive(true);
         
-        SetAllChild(targetScene, true);
+        SetAllChild(targetScene.GetComponent<SceneComponent>().control, true);
     }
 
     void DeactivateScene(GameObject targetScene)
     {
-        SetAllChild(targetScene, false);
+        targetScene.SetActive(false);
+        SetAllChild(targetScene.GetComponent<SceneComponent>().control, false);
     }
 
 }

@@ -19,7 +19,7 @@ public class ShopBgManager : ShopPanelManager
         ToTalItems = shopItems.Count;
         gridObject = new List<GameObject>(ToTalItems);
         shopGrid = new List<ShopGrid>(ToTalItems);
-        for (int i = 0; i < ToTalItems; i++)
+        for (int i = 0; i < 6; i++)
         {
             InstantiateIn(ref gridObject, i, Panel);
             shopGrid.Add(gridObject[i].GetComponent<ShopGrid>());
@@ -35,7 +35,7 @@ public class ShopBgManager : ShopPanelManager
 
     void Initialization()
     {
-       // user = UserRepository.User;
+        user = UserRepository.User;
         DeActivePanel();
         GridsInstantiate();
         shopGrid[GetGridIndex(user.currentBackground.Id)].SelectItem();

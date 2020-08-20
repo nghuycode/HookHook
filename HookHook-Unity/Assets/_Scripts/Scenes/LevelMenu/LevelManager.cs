@@ -9,14 +9,13 @@ public class LevelManager : MonoBehaviour
 
     GameObject[] gridObject = new GameObject[totalLevel];
     LevelGrid[] levelGrid = new LevelGrid[totalLevel];
-    GameObject levelPanel;
+    public GameObject levelPanel;
     public GameObject gridPrefab;
 
     
 
     void Awake()
     {
-        levelPanel = GameObject.Find("LevelPanel");
         for (int i = 0; i < totalLevel; i++)
         {
             InstantiateIn(ref gridObject[i], levelPanel);

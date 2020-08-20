@@ -45,7 +45,7 @@ public class ShopPanelManager : MonoBehaviour
 
         for (int i = 0; i < ToTalItems; i++)
             shopGrid[i].Instance(shopItems[i]);
-        
+      
         for (int i = 0;i < ToTalItems;i++)
             for(int j = 0;j < user.Purchased.Count;j++)
             {
@@ -58,7 +58,7 @@ public class ShopPanelManager : MonoBehaviour
     public int GetGridIndex(int id)
     {
         for (int i = 0; i < ToTalItems; i++)
-            if (id == shopGrid[i].gridID)
+            if (id == shopGrid[i].item.Id)
                 return i;
         return 0;
     }
@@ -77,6 +77,7 @@ public class ShopPanelManager : MonoBehaviour
         newGameobject.name = "Grid" + id.ToString();
         newGameobject.transform.SetParent(fatherGameobject.transform);
         listGameobject.Add(newGameobject);
+        newGameobject.transform.localScale = new Vector3(1, 1, 1);
     }
     
 
