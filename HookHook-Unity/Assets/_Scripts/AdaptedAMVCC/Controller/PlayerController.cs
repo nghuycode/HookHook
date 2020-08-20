@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PUser;
 
 public class PlayerController : Controller<GameplayApp>
 {
@@ -13,6 +14,11 @@ public class PlayerController : Controller<GameplayApp>
         GameManager.Instance.OnLoseGame += DeactivePlayer;
         GameManager.Instance.OnPauseGame += DisableCanPlay;
         GameManager.Instance.OnResumeGame += EnableCanPlay;
+    }
+    public void RetrieveDataFromUser()
+    {
+        app.model.PlayerModel.SkinPlayerID = UserRepository.User.currentSkin.Id;
+        app.model.PlayerModel.SkinRopeID = UserRepository.User.currentRope.Id;
     }
     public void ResetPlayer(int currentLevel)
     {
@@ -70,10 +76,15 @@ public class PlayerController : Controller<GameplayApp>
             app.model.PlayerModel.IsSwinging = false;
         }
     }
+    public void PlayerCollectMoney()
+    {
+        app.model.PlayerModel.Money++;
+    }
     public void PlayerWin()
     {
         app.model.PlayerModel.CanPlay = false;
         app.view.PlayerView.OnPlayerWin();
+        UserRepository.AddMoney(app.model.PlayerModel.Money);
         GameManager.Instance.WinGame();
         Debug.Log("Win");
     }

@@ -4,7 +4,6 @@ using UnityEngine;
 using PItem;
 using PShop;
 using PUser;
-using PModels;
 public class ShopManager : MonoBehaviour
 {
     int ToTalItems; //Total number of items in shop
@@ -40,14 +39,14 @@ public class ShopManager : MonoBehaviour
     void GridsInstantiate()
     {
         List<Item> items;
-        items = DataRepository.Shop.Items;
+        items = ShopRepository.Shop.Items;
         for (int i = 0; i < ToTalItems; i++)
             shopGrid[i].Instance(items[i]);
         
         for (int i = 0;i < ToTalItems;i++)
-            for(int j = 0;j < DataRepository.User.Purchased.Count;j++)
+            for(int j = 0;j < UserRepository.User.Purchased.Count;j++)
             {
-                if (items[i].Id == DataRepository.User.Purchased[j].Id)
+                if (items[i].Id == UserRepository.User.Purchased[j].Id)
                     shopGrid[i].UnlockItem();
             }
             

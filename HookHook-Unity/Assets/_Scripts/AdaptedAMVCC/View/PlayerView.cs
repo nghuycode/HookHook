@@ -132,6 +132,11 @@ public class PlayerView : View<GameplayApp>
             {
                 app.controller.PlayerController.PlayerWin();
             }
+            if (collision.gameObject.CompareTag("Money"))
+            {
+                app.controller.PlayerController.PlayerCollectMoney();
+                GameObject.Destroy(collision.gameObject);
+            }
         }
     }
     private Anchor FindNextAnchor()

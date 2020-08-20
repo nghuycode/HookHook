@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using PItem;
 using PUser;
-using PModels;
 
 public class ShopGrid : MonoBehaviour
 {
@@ -38,12 +37,12 @@ public class ShopGrid : MonoBehaviour
     void BuyItem()
     {
         
-        if(DataRepository.User.Money >= item.Price)
+        if(UserRepository.User.Money >= item.Price)
         {
             Debug.Log("mua dc");
             //Add item
             UnlockItem();
-            DataRepository.User.Money -= item.Price;
+            UserRepository.User.Money -= item.Price;
         }
     }
 

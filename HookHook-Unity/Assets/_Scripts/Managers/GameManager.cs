@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public event Action OnWinGame;
     public event Action OnLoseGame;
     public event Action OnNextGame;
+    public event Action OnRestartGame;
 
     public event Action<float> OnUpdateProgressLevel;
     public event Action OnUpdateGem;
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
     { 
         if (OnInitGame != null) 
             OnInitGame.Invoke(currentLevel);
-        Invoke("StartGame", 1.5f);
+        Invoke("StartGame", .5f);
     }
     public void StartGame()
     {
