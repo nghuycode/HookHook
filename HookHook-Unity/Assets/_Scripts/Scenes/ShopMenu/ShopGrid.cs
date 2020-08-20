@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using PItem;
 using PUser;
 
+
 public class ShopGrid : MonoBehaviour
 {
     public int gridID;
@@ -50,7 +51,11 @@ public class ShopGrid : MonoBehaviour
         {
             UnlockItem();
         }
-    
+    }
+
+
+    public void UnlockItem()
+    {
         curState = state.isUnselect;
         isBought.SetActive(true);
         notBought.SetActive(false);
