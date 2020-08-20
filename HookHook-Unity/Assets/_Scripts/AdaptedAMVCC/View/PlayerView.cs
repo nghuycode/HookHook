@@ -5,22 +5,22 @@ using UnityEngine;
 
 public class PlayerView : View<GameplayApp>
 {
+    public GameObject Target;
     public SpriteRenderer sprite;
     public LineRenderer rope;
     public TrailRenderer trail;
     public Rigidbody2D rb;
-    [SerializeField]
-    private DistanceJoint2D distanceJoint;
-    [SerializeField]
-    private Animator anim;
+    public DistanceJoint2D distanceJoint;
+    public Animator anim;
     [SerializeField]
     private Vector3 trailOffset, ropeOffset;
     [SerializeField]
-    private float borderLeft, borderRight, borderUp, borderDown;
+    private float borderUp, borderDown;
 
     #region MONO BEHAVIOUR
     private void Start()
     {
+        Target = GameObject.Find("Award");
         rb = this.GetComponent<Rigidbody2D>();
         distanceJoint = this.GetComponent<DistanceJoint2D>();
         sprite = this.GetComponent<SpriteRenderer>();
@@ -36,7 +36,6 @@ public class PlayerView : View<GameplayApp>
         }
     }
     #endregion
-
     #region PLAYER VIEW BEHAVIOUR
     private void flipWithVelocity()
     {
@@ -73,7 +72,7 @@ public class PlayerView : View<GameplayApp>
     }
     private void checkPlayerProgressMap()
     {
-        app.controller.PlayerController.UpdateProgressMap(this.transform.position.x / borderRight);
+        app.controller.PlayerController.UpdateProgressMap(this.transform.position.x / Target.transform.position.x);
     }
     public void OnShootRope()
     {
@@ -102,15 +101,26 @@ public class PlayerView : View<GameplayApp>
     }
     public void OnPlayerWin()
     {
+        StartCoroutine(WinAnimation());
+    }
+    IEnumerator WinAnimation()
+    {
+        rope.enabled = false;
+        anim.SetBool("IsWinning", true);
 
+        distanceJoint.enabled = false;
+        rb.velocity = Vector2.zero;
+        rb.gravityScale = 0;
+
+        sprite.flipX = true;
+        yield return new WaitForSeconds(.5f);
+        sprite.flipX = false;
+        yield return new WaitForSeconds(.5f);
+        rb.AddForce(Vector2.right * 100, ForceMode2D.Impulse);
     }
     public void OnPlayerLose()
     {
 
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

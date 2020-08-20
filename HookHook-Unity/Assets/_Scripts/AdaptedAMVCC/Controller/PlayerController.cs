@@ -9,12 +9,13 @@ public class PlayerController : Controller<GameplayApp>
         InputHandler.Instance.OnTouchScreen += ShootRope;
         InputHandler.Instance.OnReleaseScreen += ReleaseRope;
         GameManager.Instance.OnStartGame += ActivePlayer;
-        GameManager.Instance.OnWinGame += DeactivePlayer;
+        //GameManager.Instance.OnWinGame += DeactivePlayer;
         GameManager.Instance.OnLoseGame += DeactivePlayer;
+        GameManager.Instance.OnPauseGame += DisableCanPlay;
+        GameManager.Instance.OnResumeGame += EnableCanPlay;
     }
     public void ActivePlayer()
     {
-        Debug.Log("active");
         app.model.PlayerModel.CanPlay = true;
 
         this.transform.position = app.model.PlayerModel.DefaultPosition;
@@ -25,7 +26,6 @@ public class PlayerController : Controller<GameplayApp>
     }
     public void DeactivePlayer()
     {
-        Debug.Log("deactive");
         app.model.PlayerModel.CanPlay = false;
 
         this.transform.position = app.model.PlayerModel.DefaultPosition;
@@ -34,6 +34,14 @@ public class PlayerController : Controller<GameplayApp>
         app.view.PlayerView.rope.enabled = false;
         app.view.PlayerView.rb.gravityScale = 0;
         app.view.PlayerView.rb.velocity = Vector2.zero;
+    }
+    public void DisableCanPlay()
+    {
+        app.model.PlayerModel.CanPlay = false;
+    }
+    public void EnableCanPlay() 
+    {
+        app.model.PlayerModel.CanPlay = true;
     }
     public void ShootRope()
     {
@@ -61,12 +69,14 @@ public class PlayerController : Controller<GameplayApp>
     public void PlayerWin()
     {
         app.model.PlayerModel.CanPlay = false;
+        app.view.PlayerView.OnPlayerWin();
         GameManager.Instance.WinGame();
         Debug.Log("Win");
     }
     public void PlayerLose()
     {
         app.model.PlayerModel.CanPlay = false;
+        app.view.PlayerView.OnPlayerLose();
         GameManager.Instance.LoseGame();
         Debug.Log("Lose");
     }

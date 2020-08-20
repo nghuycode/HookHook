@@ -6,9 +6,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
-    public bool CanPlay;
-    public bool IsWin;
     public int CurrentLevel;
 
     #region Mono Behaviour
@@ -25,12 +22,14 @@ public class GameManager : MonoBehaviour
     public event Action<int> OnInitGame;
     public event Action OnStartGame;
     public event Action OnPauseGame;
+    public event Action OnResumeGame;
     public event Action OnWinGame;
     public event Action OnLoseGame;
     public event Action OnNextGame;
 
     public event Action<float> OnUpdateProgressLevel;
     public event Action OnUpdateGem;
+
     public void InitGame(int currentLevel)
     {
         if (OnInitGame != null) 
@@ -44,20 +43,25 @@ public class GameManager : MonoBehaviour
     }
     public void PauseGame()
     {
+        Time.timeScale = 0;
         if (OnPauseGame != null)
             OnPauseGame();
+    }
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        if (OnResumeGame != null)
+            OnResumeGame();
     }
     public void WinGame()
     {
         if (OnWinGame != null)
             OnWinGame();
-        NextGame();
     }
     public void LoseGame()
     {
         if (OnLoseGame != null)
             OnLoseGame();
-        Invoke("StartGame", 1.5f);
     }
     public void NextGame()
     {
