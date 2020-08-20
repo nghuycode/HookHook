@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
     }
     public void NextGame()
     {
-        InitGame(CurrentLevel++);
+        InitGame(++CurrentLevel);
     }
     public void UpdateProgressLevel(float percentage)
     {
