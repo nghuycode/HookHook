@@ -29,8 +29,6 @@ public class Award : MonoBehaviour
         this.GetComponent<BoxCollider2D>().enabled = false;
         this.transform.SetParent(Player.transform);
         this.transform.localPosition = new Vector3(-.4f, 1.6f, 0);
-        GameManager.Instance.OnInitGame -= OnInitGame;
-        GameManager.Instance.OnWinGame -= OnWinGame;
         StartCoroutine(DestroyAward());
     }
     IEnumerator DestroyAward()
