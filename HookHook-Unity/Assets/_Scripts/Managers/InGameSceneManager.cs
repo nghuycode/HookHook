@@ -12,7 +12,11 @@ public class InGameSceneManager : MonoBehaviour
         if (this.transform.childCount > 0)
         GameObject.Destroy(this.transform.GetChild(0).gameObject);
         //Instantiate level
-        GameObject level = Instantiate(LevelPrefabList[id],Vector3.zero,Quaternion.identity);
-        level.transform.SetParent(this.transform);
+        if (id < LevelPrefabList.Length -1)
+        {
+            GameObject level = Instantiate(LevelPrefabList[id],Vector3.zero,Quaternion.identity);
+            level.transform.SetParent(this.transform);
+        }
+        else Debug.Log("<color=green> Out of level</color>");
     }
 }
