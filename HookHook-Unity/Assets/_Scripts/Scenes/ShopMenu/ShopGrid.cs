@@ -9,15 +9,21 @@ public class ShopGrid : MonoBehaviour
 {
     public int gridID;
     public enum state { isLocked,isSelect,isUnselect};
-    state curState;
+    public state curState;
     public Item item;
+    public GameObject notBought, isBought, isSelect,notPublic;
     public Image shopImg;
     public Text priceText;
-    public ShopManager shopManager;
+    public ShopPanelManager baseManager;
     public void Instance(Item _item)
     {
         item = _item;
         curState = state.isLocked;
+        notPublic.SetActive(false);
+        notBought.SetActive(true);
+        this.GetComponent<Button>().enabled = true;
+        shopImg.sprite = ModelManager.MM.GetModel(item.Id).sprite;
+
         //attach Img
         priceText.text = item.Price.ToString();    
     }
@@ -29,43 +35,51 @@ public class ShopGrid : MonoBehaviour
         }
         else if(curState == state.isUnselect)
         {
-            shopManager.shopGrid[shopManager.currentItem].DeSelectItem(); //Get
+
+            Debug.Log(baseManager.GetGridIndex(60));
+            Debug.Log(baseManager.GetGridIndex(61));
+
+            baseManager.shopGrid[baseManager.GetGridIndex(UserRepository.Select(item).Id)].DeSelectItem(); //Get
             SelectItem();
         }
     }
 
     void BuyItem()
     {
-        
-        if(UserRepository.User.Money >= item.Price)
+        if(UserRepository.Buy(item))
         {
-            Debug.Log("mua dc");
-            //Add item
             UnlockItem();
-            UserRepository.User.Money -= item.Price;
         }
-    }
-
-
-    public void UnlockItem()
-    {
+    
         curState = state.isUnselect;
-        priceText.text = "Choose".ToString();
+        isBought.SetActive(true);
+        notBought.SetActive(false);
         //Change Img
     }
 
     public void SelectItem()
     {
-        shopManager.currentItem = gridID;
         curState = state.isSelect;
-        priceText.text = "IsSelect".ToString();
+        isSelect.SetActive(true);
+        isBought.SetActive(false);
+        SetButtonOpacity(this.GetComponent<Button>(), 0.5f);
         this.gameObject.GetComponent<Button>().enabled = false;
     }
 
     public void DeSelectItem()
     {
-        curState = state.isUnselect; //Get
-        priceText.text = "Choose".ToString();
+        curState = state.isUnselect;
+        isSelect.SetActive(false);
+        isBought.SetActive(true);
         this.gameObject.GetComponent<Button>().enabled = true;
+        SetButtonOpacity(this.GetComponent<Button>(), 1f);
+    }
+
+    void SetButtonOpacity(Button button, float opacity)
+    {
+        Color temp = button.image.color;
+        temp.a = opacity;
+        button.image.color = temp;
     }
 }
+

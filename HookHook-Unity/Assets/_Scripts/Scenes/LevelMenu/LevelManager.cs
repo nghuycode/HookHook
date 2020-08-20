@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using PUser;
 public class LevelManager : MonoBehaviour
 {
     const int totalLevel = 9; //Total number of levels
@@ -9,14 +9,13 @@ public class LevelManager : MonoBehaviour
 
     GameObject[] gridObject = new GameObject[totalLevel];
     LevelGrid[] levelGrid = new LevelGrid[totalLevel];
-    GameObject levelPanel;
+    public GameObject levelPanel;
     public GameObject gridPrefab;
 
     
 
     void Awake()
     {
-        levelPanel = GameObject.Find("LevelPanel");
         for (int i = 0; i < totalLevel; i++)
         {
             InstantiateIn(ref gridObject[i], levelPanel);
@@ -36,9 +35,6 @@ public class LevelManager : MonoBehaviour
 
     void GridsInstantiate()
     {
-        
-
-
         for (int i = 0; i < userLevel; i++)
             levelGrid[i].UnlockLevel();
     }
@@ -52,12 +48,12 @@ public class LevelManager : MonoBehaviour
     void InstantiateIn(ref GameObject newGameobject,GameObject fatherGameobject)
     {
         newGameobject = Instantiate(gridPrefab);
-        newGameobject.transform.parent = fatherGameobject.transform;
+        newGameobject.transform.SetParent(fatherGameobject.transform);
     }
 
     int GetUserLevel()
     {
-        int userLevel = 0;//Recieved from User
+        int userLevel = UserRepository.User.Level;
         return userLevel;
     }
 }

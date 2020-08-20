@@ -6,6 +6,6 @@ public class LevelBackButton : MonoBehaviour
 {
     public void OnClick()
     {
-        SceneManager.SM.LevelMenuToStartMenu();
+        SceneSystem.SM.LevelMenuToStartMenu();
     }
 }

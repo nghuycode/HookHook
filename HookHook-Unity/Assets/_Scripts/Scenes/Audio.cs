@@ -1,0 +1,17 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Audio: MonoBehaviour
+{
+    public AudioClip audioClip;
+
+    public enum AudioType { music, uiSound, gameSound }
+    public AudioType type;
+
+    public void Play()
+    {
+        AudioManager.AM.Play(this);
+    }
+
+}

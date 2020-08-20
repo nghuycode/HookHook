@@ -6,6 +6,6 @@ public class SettingBackButton : MonoBehaviour
 {
     public void OnClick()
     {
-        SceneManager.SM.SettingsMenuToStartMenu();
+        SceneSystem.SM.SettingsMenuToStartMenu();
     }
 }
