@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class SceneManager : MonoBehaviour
+public class SceneSystem : MonoBehaviour
 {
     public GameObject StartMenu, ShopMenu, LevelMenu, SettingsMenu;
-    public static SceneManager SM;
+  
+    public static SceneSystem SM;
 
     void Awake()
     {
@@ -47,13 +49,15 @@ public class SceneManager : MonoBehaviour
 
     public void LevelMenuToStartMenu()
     {
+        
         ActivateScene(StartMenu);
         DeactivateScene(LevelMenu);
     }
 
     public void LevelMenuToGameMenu()
     {
-      
+        DeactivateScene(LevelMenu);
+        SceneManager.LoadScene("DemoHook");
     }
 
     public void GameMenuToLevelMenu()
@@ -70,13 +74,15 @@ public class SceneManager : MonoBehaviour
     
     void ActivateScene(GameObject targetScene)
     {
+        targetScene.SetActive(true);
         
-        SetAllChild(targetScene, true);
+        SetAllChild(targetScene.GetComponent<SceneComponent>().control, true);
     }
 
     void DeactivateScene(GameObject targetScene)
     {
-        SetAllChild(targetScene, false);
+        targetScene.SetActive(false);
+        SetAllChild(targetScene.GetComponent<SceneComponent>().control, false);
     }
 
 }

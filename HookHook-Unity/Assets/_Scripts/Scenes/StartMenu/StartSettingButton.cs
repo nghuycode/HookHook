@@ -6,6 +6,6 @@ public class StartSettingButton : MonoBehaviour
 {
     public void OnClick()
     {
-        SceneManager.SM.StartMenuToSettingsMenu();
+        SceneSystem.SM.StartMenuToSettingsMenu();
     }
 }

@@ -25,6 +25,7 @@ public class PlayerView : View<GameplayApp>
         distanceJoint = this.GetComponent<DistanceJoint2D>();
         sprite = this.GetComponent<SpriteRenderer>();
         anim = this.GetComponent<Animator>();
+        Debug.Log("<color=red>CCCCCC</color>");
     }
     private void FixedUpdate()
     {

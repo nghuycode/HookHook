@@ -7,6 +7,6 @@ public class ShopBackButton : MonoBehaviour
 
     public void OnClick()
     {
-        SceneManager.SM.ShopMenuToStartMenu();
+        SceneSystem.SM.ShopMenuToStartMenu();
     }
 }
