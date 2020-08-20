@@ -15,7 +15,7 @@ public class PlayerView : View<GameplayApp>
     [SerializeField]
     private Vector3 trailOffset, ropeOffset;
     [SerializeField]
-    private float borderUp, borderDown;
+    private float borderUp, borderDown, borderRight;
 
     #region MONO BEHAVIOUR
     private void Start()
