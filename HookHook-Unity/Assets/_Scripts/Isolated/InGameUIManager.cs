@@ -35,7 +35,7 @@ public class InGameUIManager : MonoBehaviour
     }
     IEnumerator WinGame()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         WinView.SetActive(true);
         Home.gameObject.SetActive(true);
         Pause.gameObject.SetActive(false);
