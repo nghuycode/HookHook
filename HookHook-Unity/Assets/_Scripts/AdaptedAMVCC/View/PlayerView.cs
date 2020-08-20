@@ -52,7 +52,7 @@ public class PlayerView : View<GameplayApp>
     }
     private void addInitForce()
     {
-        float forceScale = 5;
+        float forceScale = 2;
         if (!sprite.flipX)
             rb.AddForce(Vector2.right * forceScale, ForceMode2D.Impulse);
         else
@@ -81,6 +81,8 @@ public class PlayerView : View<GameplayApp>
     }
     public void OnSwingRope()
     {
+        rope.enabled = true;
+
         //Line Renderer
         rope.SetPosition(0, this.transform.position + ropeOffset);
         rope.SetPosition(1, FindNextAnchor().transform.position);
@@ -129,6 +131,11 @@ public class PlayerView : View<GameplayApp>
             if (collision.gameObject.CompareTag("Award"))
             {
                 app.controller.PlayerController.PlayerWin();
+            }
+            if (collision.gameObject.CompareTag("Money"))
+            {
+                app.controller.PlayerController.PlayerCollectMoney();
+                GameObject.Destroy(collision.gameObject);
             }
         }
     }

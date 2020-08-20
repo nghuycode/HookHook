@@ -1,8 +1,8 @@
-﻿using System.Collections;
+﻿using PUser;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using PModels;
 
 public class SettingMoneyBar : MonoBehaviour
 {
@@ -20,7 +20,7 @@ public class SettingMoneyBar : MonoBehaviour
     }
     int GetMoneyFromUser()
     {
-        int userMoney = PModels.DataRepository.User.Money;
+        int userMoney = UserRepository.User.Money;
         return userMoney;
     }
 }

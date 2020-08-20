@@ -57,4 +57,12 @@ public class InGameUIManager : MonoBehaviour
         PauseView.SetActive(false);
         GameManager.Instance.ResumeGame();
     }
+    public void NextGame()
+    {
+        GameManager.Instance.NextGame();
+    }
+    public void RestartGame()
+    {
+        GameManager.Instance.RestartGame();
+    }
 }

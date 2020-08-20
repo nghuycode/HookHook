@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using PModels;
+using PUser;
 
 public class LevelMoneyBar : MonoBehaviour
 {
@@ -20,7 +20,7 @@ public class LevelMoneyBar : MonoBehaviour
     }
     int GetMoneyFromUser()
     {
-        int userMoney = PModels.DataRepository.User.Money;
+        int userMoney = UserRepository.User.Money;
         return userMoney;
     }
 }
