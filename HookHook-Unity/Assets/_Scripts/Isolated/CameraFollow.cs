@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
     public Transform target;
     public Vector3 offset, newPosition;
     public bool followX, followY;
-    public float speedFollow;
+    public float speedFollow, borderLeft, borderRight;
     void LateUpdate()
     {
         newPosition = this.transform.position;
@@ -16,6 +16,10 @@ public class CameraFollow : MonoBehaviour
         if (followY)
             newPosition = new Vector3(newPosition.x, target.position.y + offset.y, newPosition.z);
         newPosition = Vector3.Lerp(this.transform.position, newPosition, speedFollow);
+        if (newPosition.x < borderLeft)
+            newPosition = new Vector3(borderLeft, newPosition.y, newPosition.z);
+        if (newPosition.x > borderRight)
+            newPosition = new Vector3(borderRight, newPosition.y, newPosition.z);
         this.transform.position = newPosition;
     }
 }
