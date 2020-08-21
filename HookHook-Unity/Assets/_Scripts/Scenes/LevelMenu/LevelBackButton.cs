@@ -7,5 +7,6 @@ public class LevelBackButton : MonoBehaviour
     public void OnClick()
     {
         SceneSystem.SM.LevelMenuToStartMenu();
+        AudioManager.AM.Play("Button");
     }
 }

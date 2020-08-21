@@ -24,6 +24,7 @@ public class ShopPanelManager : MonoBehaviour
         SetButtonOpacity(tabButton, 1f);
         isSelect = true;
         Panel.SetActive(true);
+        
     }
 
     public void DeActivePanel()

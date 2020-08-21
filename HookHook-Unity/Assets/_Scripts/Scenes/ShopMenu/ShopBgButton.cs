@@ -8,5 +8,6 @@ public class ShopBgButton : MonoBehaviour
     public void OnClick()
     {
         shopSelect.SelectBgPanel();
+        AudioManager.AM.Play("Button");
     }
 }

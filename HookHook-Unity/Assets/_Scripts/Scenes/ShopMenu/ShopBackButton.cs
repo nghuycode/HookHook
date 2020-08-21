@@ -8,5 +8,6 @@ public class ShopBackButton : MonoBehaviour
     public void OnClick()
     {
         SceneSystem.SM.ShopMenuToStartMenu();
+        AudioManager.AM.Play("Button");
     }
 }

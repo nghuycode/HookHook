@@ -1,14 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using PUser;
 public class ShopSelection : MonoBehaviour
 {
     public SkinPanelManager skinManager;
     public ShopBgManager bgManager;
     public ShopRopeManager ropeManager;
-    
 
+    private void OnEnable()
+    {
+        Invoke("Innitialization", 0.0001f);
+    }
+    void Innitialization()
+    {
+        SelectSkinPanel();
+        
+    }
     void Select(ShopPanelManager panelManager)
     {
         skinManager.DeActivePanel();
@@ -19,14 +27,17 @@ public class ShopSelection : MonoBehaviour
     public void SelectSkinPanel()
     {
         Select(skinManager);
+        ShopPanelUser.SPU.UpdateImg(ModelManager.MM.GetModel(UserRepository.User.currentSkin.Id));
     }
     public void SelectBgPanel()
     {
         Select(bgManager);
+        ShopPanelUser.SPU.UpdateImg(ModelManager.MM.GetModel(UserRepository.User.currentBackground.Id));
     }
     public void SelectRopePanel()
     {
         Select(ropeManager);
+        ShopPanelUser.SPU.UpdateImg(ModelManager.MM.GetModel(UserRepository.User.currentRope.Id));
     }
 
 }

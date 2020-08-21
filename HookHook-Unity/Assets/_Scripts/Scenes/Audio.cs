@@ -5,7 +5,7 @@ using UnityEngine;
 public class Audio: MonoBehaviour
 {
     public AudioClip audioClip;
-
+    public string name;
     public enum AudioType { music, uiSound, gameSound }
     public AudioType type;
 

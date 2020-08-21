@@ -7,5 +7,6 @@ public class StartShopButton : MonoBehaviour
     public void OnClick()
     {
         SceneSystem.SM.StartMenuToShopMenu();
+        AudioManager.AM.Play("Button");
     }
 }
