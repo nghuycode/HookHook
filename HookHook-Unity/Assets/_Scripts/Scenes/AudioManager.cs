@@ -14,7 +14,6 @@ public class AudioManager : MonoBehaviour
             GameObject.Destroy(AM);
         else
             AM = this;
-        DontDestroyOnLoad(this);
     }
     void Attach(Audio audio)
     {

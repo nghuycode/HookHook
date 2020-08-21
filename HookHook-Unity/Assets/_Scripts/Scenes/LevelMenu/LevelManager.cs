@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
 
     void GridsInstantiate()
     {
-        for (int i = 0; i < userLevel; i++)
+        for (int i = 0; i <= userLevel; i++)
             levelGrid[i].UnlockLevel();
     }
 

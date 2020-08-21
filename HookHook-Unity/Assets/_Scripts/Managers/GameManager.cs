@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         CurrentLevel = PlayerPrefs.GetInt("CurrentLevel");
-        Debug.Log(PlayerPrefs.GetInt("CurrentLevel"));
     }
     private void Start()
     {
@@ -33,13 +32,15 @@ public class GameManager : MonoBehaviour
     public event Action OnUpdateGem;
 
     public void InitGame(int currentLevel)
-    { 
+    {
+        Debug.Log("init game with level:" + CurrentLevel);
+        Invoke("StartGame", .5f);
         if (OnInitGame != null) 
             OnInitGame.Invoke(currentLevel);
-        Invoke("StartGame", .5f);
     }
     public void StartGame()
     {
+        Debug.Log("start game with level:" + CurrentLevel);
         if (OnStartGame != null)
             OnStartGame();
     }

@@ -74,6 +74,7 @@ public class InGameUIManager : MonoBehaviour
     }
     public void BackToHome()
     {
-        SceneSystem.SM.GameMenuToLevelMenu();
+        Time.timeScale = 1;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
     }
 }

@@ -12,7 +12,6 @@ public class SceneSystem : MonoBehaviour
             GameObject.Destroy(SM);
         else
             SM = this;
-        DontDestroyOnLoad(this);
     }
     public void StartMenuToSettingsMenu()
     {
@@ -48,14 +47,6 @@ public class SceneSystem : MonoBehaviour
     {
         DeactivateScene(LevelMenu);
         SceneManager.LoadScene("DemoHook");
-    }
-    public void GameMenuToLevelMenu()
-    {
-        SceneManager.LoadScene("Menu");
-        StartMenu = GameObject.Find("StartMenu");
-        ShopMenu = GameObject.Find("ShopMenu");
-        LevelMenu = GameObject.Find("LevelMenu");
-        SettingsMenu = GameObject.Find("SettingMenu");
     }
     void SetAllChild(GameObject targetObject, bool activeState)
     {

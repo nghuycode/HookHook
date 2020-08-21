@@ -11,20 +11,22 @@ public class SkinAdapt : MonoBehaviour
     public AnimatorController[] PlayerSkinAnimators;
     void Start()
     {
-        GameManager.Instance.OnInitGame += AdaptSkin;
+        GameManager.Instance.OnStartGame += AdaptSkin;
     }
 
-    public void AdaptSkin(int currentLevel)
+    public void AdaptSkin()
     {
         //Player
         AdaptPlayer();
         //Rope
         AdaptRope();
         //Background
+        AdaptBackground();
     }
     private void AdaptPlayer()
     {
         int ID = UserRepository.User.currentSkin.Id;
+        Debug.Log(ID);
         Player.GetComponent<SpriteRenderer>().sprite = PlayerSkinSprites[ID];
         Player.GetComponent<Animator>().runtimeAnimatorController = PlayerSkinAnimators[ID];
     }
