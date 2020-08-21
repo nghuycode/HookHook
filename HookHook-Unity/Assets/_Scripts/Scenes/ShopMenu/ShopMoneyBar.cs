@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using PUser;
 using UnityEngine.UI;
+using PUser;
 
 public class ShopMoneyBar : MonoBehaviour
 {

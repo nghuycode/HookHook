@@ -3,24 +3,20 @@ using UnityEngine;
 public class InGameSceneManager : MonoBehaviour
 {
     public GameObject[] LevelPrefabList;
-
-    [SerializeField]
-    private Vector3 playerDefaultPosition;
-    private GameObject Player;
-
-    private void Awake() 
+    private void Start() 
     {
-        Player = GameObject.Find("Player");
-        RenderLevel(0);    
+        GameManager.Instance.OnInitGame += RenderLevel;
     }
     public void RenderLevel(int id)
     {
+        if (this.transform.childCount > 0)
+        GameObject.Destroy(this.transform.GetChild(0).gameObject);
         //Instantiate level
-        GameObject level = Instantiate(LevelPrefabList[id],Vector3.zero,Quaternion.identity);
-        level.transform.SetParent(this.transform);
-
-        //Show player and Reset Player position
-        Player.GetComponent<SpriteRenderer>().enabled = true;
-        Player.transform.position = playerDefaultPosition;
+        if (id < LevelPrefabList.Length -1)
+        {
+            GameObject level = Instantiate(LevelPrefabList[id],Vector3.zero,Quaternion.identity);
+            level.transform.SetParent(this.transform);
+        }
+        else Debug.Log("<color=green> Out of level</color>");
     }
 }

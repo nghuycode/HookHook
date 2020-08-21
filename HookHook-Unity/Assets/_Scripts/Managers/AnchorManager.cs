@@ -14,10 +14,12 @@ public class AnchorManager : MonoBehaviour
 
 
     #region Mono Behaviour
-    private void Awake()
+    private void Start()
     {
         Instance = this;
         anchorPool = Instance.gameObject;
+        GameManager.Instance.OnWinGame += UnlockAnchor;
+        GameManager.Instance.OnLoseGame += UnlockAnchor;
         initListAnchor();
     }
     #endregion
@@ -25,7 +27,9 @@ public class AnchorManager : MonoBehaviour
     private void initListAnchor()
     {
         for (int i = 0; i < anchorPool.transform.childCount; ++i)
+        {
             listAnchor.Add(anchorPool.transform.GetChild(i).GetComponent<Anchor>());
+        }
     }
     private void addAnAnchor(Anchor anchor)
     {

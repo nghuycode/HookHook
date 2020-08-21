@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Award
+  - Money
   layers:
   - Default
   - TransparentFX

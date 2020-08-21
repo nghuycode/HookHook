@@ -5,42 +5,38 @@ using UnityEngine;
 
 public class PlayerView : View<GameplayApp>
 {
-    [SerializeField]
-    private SpriteRenderer sprite;
-    [SerializeField]
-    private LineRenderer rope;
-    [SerializeField]
-    private Rigidbody2D rb;
-    [SerializeField]
-    private DistanceJoint2D distanceJoint;
-    [SerializeField]
-    private Animator anim;
-    [SerializeField]
-    private TrailRenderer trail;
+    public GameObject Target;
+    public SpriteRenderer sprite;
+    public LineRenderer rope;
+    public TrailRenderer trail;
+    public Rigidbody2D rb;
+    public DistanceJoint2D distanceJoint;
+    public Animator anim;
     [SerializeField]
     private Vector3 trailOffset, ropeOffset;
     [SerializeField]
-    private float borderLeft, borderRight, borderUp, borderDown;
+    private float borderUp, borderDown, borderLeft, borderRight;
 
     #region MONO BEHAVIOUR
-    private void Awake()
+    private void Start()
     {
+        Target = GameObject.Find("Award");
         rb = this.GetComponent<Rigidbody2D>();
         distanceJoint = this.GetComponent<DistanceJoint2D>();
         sprite = this.GetComponent<SpriteRenderer>();
         anim = this.GetComponent<Animator>();
-        //rope = this.GetComponent<LineRenderer>();
-        //trail = this.GetComponent<TrailRenderer>();
-
-        //Events subscribe
     }
     private void FixedUpdate()
     {
-        flipWithVelocity();
-        animationPlayer();
+        if (app.model.PlayerModel.CanPlay)
+        {
+            flipWithVelocity();
+            animationPlayer();
+            checkPlayerOutBorder();
+            checkPlayerProgressMap();
+        }
     }
     #endregion
-
     #region PLAYER VIEW BEHAVIOUR
     private void flipWithVelocity()
     {
@@ -57,7 +53,7 @@ public class PlayerView : View<GameplayApp>
     }
     private void addInitForce()
     {
-        float forceScale = 50;
+        float forceScale = 2;
         if (!sprite.flipX)
             rb.AddForce(Vector2.right * forceScale, ForceMode2D.Impulse);
         else
@@ -69,23 +65,30 @@ public class PlayerView : View<GameplayApp>
     }
     private void checkPlayerOutBorder()
     {
-        if (this.transform.position.y > borderUp || this.transform.position.y < borderDown)
+        if (app.model.PlayerModel.CanPlay)
         {
-            //Lose
-            app.controller.PlayerController.PlayerLose();
+            if (this.transform.position.y > borderUp || this.transform.position.y < borderDown || this.transform.position.x < borderLeft - 10 || this.transform.position.x > borderRight)
+            {
+                //Lose
+                app.controller.PlayerController.PlayerLose();
+            }
         }
     }
     private void checkPlayerProgressMap()
     {
-        app.controller.PlayerController.UpdateProgressMap(this.transform.position.x / borderRight);
+        float distanceMax = (borderRight - borderLeft);
+        float distanceCur = (this.transform.position.x - borderLeft);
+        app.controller.PlayerController.UpdateProgressMap(distanceCur / distanceMax);
     }
     public void OnShootRope()
     {
-        //addInitForce();   
+        addInitForce();   
         OnSwingRope();
     }
     public void OnSwingRope()
     {
+        rope.enabled = true;
+
         //Line Renderer
         rope.SetPosition(0, this.transform.position + ropeOffset);
         rope.SetPosition(1, FindNextAnchor().transform.position);
@@ -106,26 +109,46 @@ public class PlayerView : View<GameplayApp>
     }
     public void OnPlayerWin()
     {
+        StartCoroutine(WinAnimation());
+    }
+    IEnumerator WinAnimation()
+    {
+        rope.enabled = false;
+        anim.SetBool("IsWinning", true);
 
+        distanceJoint.enabled = false;
+        rb.velocity = Vector2.zero;
+        rb.gravityScale = 0;
+
+        sprite.flipX = true;
+        yield return new WaitForSeconds(.5f);
+        sprite.flipX = false;
+        yield return new WaitForSeconds(.5f);
+        rb.AddForce(Vector2.right * 100, ForceMode2D.Impulse);
     }
     public void OnPlayerLose()
     {
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Award"))
+        if (app.model.PlayerModel.CanPlay)
         {
-            Debug.Log("Win Game");
+            if (collision.gameObject.CompareTag("Award"))
+            {
+                app.controller.PlayerController.PlayerWin();
+            }
+            if (collision.gameObject.CompareTag("Money"))
+            {
+                app.controller.PlayerController.PlayerCollectMoney();
+                GameObject.Destroy(collision.gameObject);
+            }
         }
     }
     private Anchor FindNextAnchor()
     {
-        return AnchorManager.Instance.FindNearestAnchorWithPlayer(this.transform.position, app.model.PlayerModel.IsSwinging);
+        return AnchorManager.Instance? 
+            AnchorManager.Instance.FindNearestAnchorWithPlayer(this.transform.position, app.model.PlayerModel.IsSwinging) : null;
     }
     #endregion
 }

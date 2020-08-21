@@ -6,9 +6,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
-    public bool CanPlay;
-    public bool IsWin;
     public int CurrentLevel;
 
     #region Mono Behaviour
@@ -16,20 +13,30 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
     }
+    private void Start()
+    {
+        CurrentLevel = PlayerPrefs.GetInt("CurrentLevel");
+        InitGame(CurrentLevel);
+    }
     #endregion
     #region Events and Actions
     public event Action<int> OnInitGame;
     public event Action OnStartGame;
     public event Action OnPauseGame;
+    public event Action OnResumeGame;
     public event Action OnWinGame;
     public event Action OnLoseGame;
+    public event Action OnNextGame;
+    public event Action OnRestartGame;
 
     public event Action<float> OnUpdateProgressLevel;
     public event Action OnUpdateGem;
+
     public void InitGame(int currentLevel)
-    {
-        if (OnInitGame != null)
+    { 
+        if (OnInitGame != null) 
             OnInitGame.Invoke(currentLevel);
+        Invoke("StartGame", .5f);
     }
     public void StartGame()
     {
@@ -38,8 +45,15 @@ public class GameManager : MonoBehaviour
     }
     public void PauseGame()
     {
+        Time.timeScale = 0;
         if (OnPauseGame != null)
             OnPauseGame();
+    }
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        if (OnResumeGame != null)
+            OnResumeGame();
     }
     public void WinGame()
     {
@@ -50,6 +64,14 @@ public class GameManager : MonoBehaviour
     {
         if (OnLoseGame != null)
             OnLoseGame();
+    }
+    public void RestartGame()
+    {
+        InitGame(CurrentLevel);
+    }
+    public void NextGame()
+    {
+        InitGame(++CurrentLevel);
     }
     public void UpdateProgressLevel(float percentage)
     {

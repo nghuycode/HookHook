@@ -16,12 +16,18 @@ public class Anchor : MonoBehaviour
     }
     public void OnLocking()
     {
-        lockRound.enabled = true;
-        anchorSprite.sprite = lockAnchorSprite;
+        if (lockRound)
+        {
+            lockRound.enabled = true;
+            anchorSprite.sprite = lockAnchorSprite;
+        }
     }
     public void OnUnlocking()
     {
-        lockRound.enabled = false;
-        anchorSprite.sprite = unlockAnchorSprite;
+        if (lockRound)
+        {
+            lockRound.enabled = false;
+            anchorSprite.sprite = unlockAnchorSprite;
+        }
     }
 }
