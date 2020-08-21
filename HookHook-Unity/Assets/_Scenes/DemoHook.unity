@@ -589,12 +589,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 975156957}
+  - {fileID: 1995004281}
   - {fileID: 1703098019}
   - {fileID: 678356067}
   - {fileID: 850055533}
-  - {fileID: 1984567511}
-  - {fileID: 1995004281}
+  - {fileID: 975156957}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1022,8 +1021,8 @@ MonoBehaviour:
   ropeOffset: {x: -0.1, y: 0, z: 0}
   borderUp: 30
   borderDown: -30
-  borderLeft: -65
-  borderRight: 65
+  borderLeft: -28
+  borderRight: 70
 --- !u!50 &591150272
 Rigidbody2D:
   serializedVersion: 4
@@ -1841,7 +1840,7 @@ RectTransform:
   - {fileID: 123765523}
   - {fileID: 1538844691}
   m_Father: {fileID: 446716836}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3228,8 +3227,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 446716836}
-  m_RootOrder: 4
+  m_Father: {fileID: 1995004281}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3302,8 +3301,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1901796452}
+  - {fileID: 1984567511}
   m_Father: {fileID: 446716836}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3679,7 +3679,7 @@ MonoBehaviour:
   followX: 1
   followY: 0
   speedFollow: 10
-  borderLeft: -54
+  borderLeft: -28
   borderRight: 56.5
 --- !u!20 &5836363278434377654
 Camera:

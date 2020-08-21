@@ -65,16 +65,19 @@ public class PlayerView : View<GameplayApp>
     }
     private void checkPlayerOutBorder()
     {
-        if (this.transform.position.y > borderUp || this.transform.position.y < borderDown)
+        if (app.model.PlayerModel.CanPlay)
         {
-            //Lose
-            app.controller.PlayerController.PlayerLose();
+            if (this.transform.position.y > borderUp || this.transform.position.y < borderDown || this.transform.position.x < borderLeft - 10 || this.transform.position.x > borderRight)
+            {
+                //Lose
+                app.controller.PlayerController.PlayerLose();
+            }
         }
     }
     private void checkPlayerProgressMap()
     {
-        float distanceMax = Mathf.Abs(borderRight - borderLeft);
-        float distanceCur = Mathf.Abs(this.transform.position.x - borderLeft);
+        float distanceMax = (borderRight - borderLeft);
+        float distanceCur = (this.transform.position.x - borderLeft);
         app.controller.PlayerController.UpdateProgressMap(distanceCur / distanceMax);
     }
     public void OnShootRope()

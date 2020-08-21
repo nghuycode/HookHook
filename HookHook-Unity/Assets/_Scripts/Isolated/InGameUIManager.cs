@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.UI;
 
 public class InGameUIManager : MonoBehaviour
@@ -29,9 +30,8 @@ public class InGameUIManager : MonoBehaviour
     }
     public void OnUpdateProgress(float percentage)
     {
-        Debug.Log(percentage);
+        if (percentage < 0) percentage = 0;
         float desiredProgress = percentage * (rightProgress - leftProgress) - leftProgress * 2;
-        Debug.Log(desiredProgress);
         AnchorProgress.rectTransform.position = new Vector3(desiredProgress, AnchorProgress.rectTransform.position.y, AnchorProgress.rectTransform.position.z);
         Debug.Log(AnchorProgress.rectTransform.position);
     }
