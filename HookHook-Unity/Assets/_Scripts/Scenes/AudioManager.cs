@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using PUser;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource[] GamePlayThread;
     public GameObject audioList;
     public List<Audio> audioClip;
-    int cntThread;
+    int cntThread = 0;
     void Awake()
     {
         if (AM != null)
@@ -56,26 +57,9 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
-    public void Play(Audio audio)
-    {
-        Attach(audio);
-        if(audio.type == Audio.AudioType.music)
-        {
-            MusicThread.Play();
-        }
-        else if (audio.type == Audio.AudioType.uiSound)
-        {
-            UIThread.Play();
-        }
-        else if (audio.type == Audio.AudioType.gameSound)
-        {
-            GamePlayThread[cntThread].Play();
-        }
-    }
 
     public void Play(string _name)
     {
-
         Audio audio;
         audio = null;
         for (int i = 0;i < audioClip.Count;i++) 
@@ -112,7 +96,7 @@ public class AudioManager : MonoBehaviour
     {
         AudioManager.AM.UIThread.volume = 1;
         for (int i = 0; i < AudioManager.AM.GamePlayThread.Length; i++)
-            AudioManager.AM.GamePlayThread[i].volume = 0;
+            AudioManager.AM.GamePlayThread[i].volume = .5f;
     }
 
     void TurnOffMusic()

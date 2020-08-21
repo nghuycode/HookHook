@@ -59,6 +59,7 @@ public class PlayerController : Controller<GameplayApp>
         {
             if (!app.model.PlayerModel.IsSwinging)
             {
+                AudioManager.AM.Play("PlayerSwing");
                 app.view.PlayerView.OnShootRope();
                 app.model.PlayerModel.IsSwinging = true;
             }
@@ -82,6 +83,7 @@ public class PlayerController : Controller<GameplayApp>
     }
     public void PlayerWin()
     {
+        AudioManager.AM.Play("PlayerWin");
         app.model.PlayerModel.CanPlay = false;
         app.view.PlayerView.OnPlayerWin();
         UserRepository.AddMoney(app.model.PlayerModel.Money);

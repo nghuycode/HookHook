@@ -52,6 +52,7 @@ public class InGameUIManager : MonoBehaviour
     }
     public void PauseGame()
     {
+        AudioManager.AM.Play("Button");
         Home.gameObject.SetActive(true);
         Pause.gameObject.SetActive(false);
         PauseView.SetActive(true);
@@ -59,6 +60,7 @@ public class InGameUIManager : MonoBehaviour
     }
     public void ResumeGame()
     {
+        AudioManager.AM.Play("Button");
         Home.gameObject.SetActive(false);
         Pause.gameObject.SetActive(true);
         PauseView.SetActive(false);
@@ -74,6 +76,7 @@ public class InGameUIManager : MonoBehaviour
     }
     public void BackToHome()
     {
+        AudioManager.AM.Play("Button");
         Time.timeScale = 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
     }

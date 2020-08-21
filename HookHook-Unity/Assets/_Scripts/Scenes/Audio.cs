@@ -9,9 +9,6 @@ public class Audio: MonoBehaviour
     public enum AudioType { music, uiSound, gameSound }
     public AudioType type;
 
-    public void Play()
-    {
-        AudioManager.AM.Play(this);
-    }
+
 
 }
