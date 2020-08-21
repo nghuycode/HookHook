@@ -7,8 +7,16 @@ public class ShopSelection : MonoBehaviour
     public SkinPanelManager skinManager;
     public ShopBgManager bgManager;
     public ShopRopeManager ropeManager;
-    
 
+    private void OnEnable()
+    {
+        Invoke("Innitialization", 0.0001f);
+    }
+    void Innitialization()
+    {
+        SelectSkinPanel();
+        
+    }
     void Select(ShopPanelManager panelManager)
     {
         skinManager.DeActivePanel();

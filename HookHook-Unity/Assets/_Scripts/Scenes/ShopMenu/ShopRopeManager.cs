@@ -36,7 +36,6 @@ public class ShopRopeManager : ShopPanelManager
     void Initialization()
     {
         user = UserRepository.User;
-        DeActivePanel();
         GridsInstantiate();
         shopGrid[GetGridIndex(user.currentRope.Id)].SelectItem();
     }

@@ -36,7 +36,6 @@ public class ShopBgManager : ShopPanelManager
     void Initialization()
     {
         user = UserRepository.User;
-        DeActivePanel();
         GridsInstantiate();
         shopGrid[GetGridIndex(user.currentBackground.Id)].SelectItem();
     }

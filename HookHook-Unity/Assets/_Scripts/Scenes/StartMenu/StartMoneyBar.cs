@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using PUser;
+using TMPro;
 public class StartMoneyBar : MonoBehaviour
 {
-    public Text MoneyText;
+    public TextMeshProUGUI MoneyText;
     int currentMoney;
     void OnEnable()
     {

@@ -36,11 +36,8 @@ public class ShopGrid : MonoBehaviour
         }
         else if(curState == state.isUnselect)
         {
-
-            Debug.Log(baseManager.GetGridIndex(60));
-            Debug.Log(baseManager.GetGridIndex(61));
-
             baseManager.shopGrid[baseManager.GetGridIndex(UserRepository.Select(item).Id)].DeSelectItem(); //Get
+            ShopPanelUser.SPU.UpdateImg(ModelManager.MM.GetModel(item.Id));
             SelectItem();
         }
     }
@@ -69,7 +66,7 @@ public class ShopGrid : MonoBehaviour
         isBought.SetActive(false);
         SetButtonOpacity(this.GetComponent<Button>(), 0.5f);
         this.gameObject.GetComponent<Button>().enabled = false;
-        ShopPanelUser.SPU.UpdateImg(ModelManager.MM.GetModel(item.Id));
+   
     }
 
     public void DeSelectItem()

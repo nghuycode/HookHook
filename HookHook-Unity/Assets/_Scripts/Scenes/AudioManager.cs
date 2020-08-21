@@ -5,9 +5,10 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     static public AudioManager AM;
-    public AudioSource MusicThread, UIThread, GamePlayThread;
-    public Audio[] audioClip;
-
+    public AudioSource MusicThread, UIThread;
+    public AudioSource[] GamePlayThread;
+    public List<Audio> audioClip;
+    int cntThread;
     void Awake()
     {
         if (AM != null)
@@ -34,9 +35,9 @@ public class AudioManager : MonoBehaviour
         }
         else if (audio.type == Audio.AudioType.gameSound)
         {
-            if (audio.audioClip != GamePlayThread.clip)
+            if (audio.audioClip != GamePlayThread[cntThread].clip)
             {
-                GamePlayThread.clip = audio.audioClip;
+                GamePlayThread[cntThread].clip = audio.audioClip;
             }
         }
     }
@@ -53,7 +54,25 @@ public class AudioManager : MonoBehaviour
         }
         else if (audio.type == Audio.AudioType.gameSound)
         {
-            GamePlayThread.Play();
+            GamePlayThread[cntThread].Play();
+        }
+    }
+
+    public void Play(int id)
+    {
+        Audio audio = audioClip[id];
+        if (audio.type == Audio.AudioType.music)
+        {
+            MusicThread.Play();
+        }
+        else if (audio.type == Audio.AudioType.uiSound)
+        {
+            UIThread.Play();
+        }
+        else if (audio.type == Audio.AudioType.gameSound)
+        {
+            GamePlayThread[cntThread].Play();
+            cntThread = (cntThread + 1) % GamePlayThread.Length;
         }
     }
 }
