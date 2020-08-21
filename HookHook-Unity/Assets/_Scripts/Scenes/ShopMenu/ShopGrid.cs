@@ -69,6 +69,7 @@ public class ShopGrid : MonoBehaviour
         isBought.SetActive(false);
         SetButtonOpacity(this.GetComponent<Button>(), 0.5f);
         this.gameObject.GetComponent<Button>().enabled = false;
+        ShopPanelUser.SPU.UpdateImg(ModelManager.MM.GetModel(item.Id));
     }
 
     public void DeSelectItem()
