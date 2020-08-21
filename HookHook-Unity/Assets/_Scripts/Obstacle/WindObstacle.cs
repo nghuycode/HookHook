@@ -15,6 +15,7 @@ public class WindObstacle : AbstractObstacle
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
+        AudioManager.AM.Play("Wind");
         Affect(other.gameObject);
     }
 }

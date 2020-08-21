@@ -92,6 +92,7 @@ public class PlayerController : Controller<GameplayApp>
     }
     public void PlayerLose()
     {
+        AudioManager.AM.Play("PlayerLose");
         app.model.PlayerModel.CanPlay = false;
         app.view.PlayerView.OnPlayerLose();
         GameManager.Instance.LoseGame();

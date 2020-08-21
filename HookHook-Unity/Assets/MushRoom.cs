@@ -9,6 +9,7 @@ public class MushRoom : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         animator.SetBool("Touch",true);
+        AudioManager.AM.Play("PlayerBounce");
     }
 
     private void OnCollisionExit2D(Collision2D other) {

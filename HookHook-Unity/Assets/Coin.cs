@@ -1,4 +1,5 @@
 ﻿using PUser;
+using System.Collections;
 using UnityEngine;
 
 public class Coin : MonoBehaviour
@@ -6,7 +7,16 @@ public class Coin : MonoBehaviour
     [SerializeField]
     private Animator animator;
     private void OnTriggerEnter2D(Collider2D other) {
-        UserRepository.AddMoney(1);
-        animator.SetTrigger("EatCoin");
+        if (other.gameObject.name == "Player")
+        {
+            UserRepository.AddMoney(1);
+            AudioManager.AM.Play("EatCoin");
+            animator.SetTrigger("EatCoin");
+        }
+    }
+    IEnumerator DestroyCoin()
+    {
+        yield return new WaitForSeconds(1);
+        GameObject.Destroy(this.gameObject);
     }
 }
