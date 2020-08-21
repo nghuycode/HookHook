@@ -15,7 +15,7 @@ public class PlayerView : View<GameplayApp>
     [SerializeField]
     private Vector3 trailOffset, ropeOffset;
     [SerializeField]
-    private float borderUp, borderDown, borderRight;
+    private float borderUp, borderDown, borderLeft, borderRight;
 
     #region MONO BEHAVIOUR
     private void Start()
@@ -25,7 +25,6 @@ public class PlayerView : View<GameplayApp>
         distanceJoint = this.GetComponent<DistanceJoint2D>();
         sprite = this.GetComponent<SpriteRenderer>();
         anim = this.GetComponent<Animator>();
-        Debug.Log("<color=red>CCCCCC</color>");
     }
     private void FixedUpdate()
     {
@@ -34,6 +33,7 @@ public class PlayerView : View<GameplayApp>
             flipWithVelocity();
             animationPlayer();
             checkPlayerOutBorder();
+            checkPlayerProgressMap();
         }
     }
     #endregion
@@ -73,7 +73,9 @@ public class PlayerView : View<GameplayApp>
     }
     private void checkPlayerProgressMap()
     {
-        app.controller.PlayerController.UpdateProgressMap(this.transform.position.x / Target.transform.position.x);
+        float distanceMax = Mathf.Abs(borderRight - borderLeft);
+        float distanceCur = Mathf.Abs(this.transform.position.x - borderLeft);
+        app.controller.PlayerController.UpdateProgressMap(distanceCur / distanceMax);
     }
     public void OnShootRope()
     {

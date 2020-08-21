@@ -7,7 +7,8 @@ public class InGameUIManager : MonoBehaviour
 {
     public Button Pause, Home;
     public GameObject WinView, LoseView, ProgressView, PauseView;
-
+    public Image AnchorProgress;
+    public float leftProgress, rightProgress;
     private void Start()
     {
         GameManager.Instance.OnInitGame += OnInitGame;
@@ -23,11 +24,16 @@ public class InGameUIManager : MonoBehaviour
         Home.gameObject.SetActive(false);   
         Pause.gameObject.SetActive(true);
         ProgressView.SetActive(true);
-
+        AnchorProgress.rectTransform.position = new Vector3(leftProgress, AnchorProgress.rectTransform.position.y, AnchorProgress.rectTransform.position.z);
+        Debug.Log(AnchorProgress.rectTransform.position);
     }
     public void OnUpdateProgress(float percentage)
     {
-
+        Debug.Log(percentage);
+        float desiredProgress = percentage * (rightProgress - leftProgress) - leftProgress * 2;
+        Debug.Log(desiredProgress);
+        AnchorProgress.rectTransform.position = new Vector3(desiredProgress, AnchorProgress.rectTransform.position.y, AnchorProgress.rectTransform.position.z);
+        Debug.Log(AnchorProgress.rectTransform.position);
     }
     public void PopUpWin()
     {
