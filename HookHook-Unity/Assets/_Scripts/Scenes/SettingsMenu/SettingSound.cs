@@ -18,7 +18,6 @@ public class SettingSound : MonoBehaviour
     }
     public void OnClick()
     {
-
         if (isOn == 1) TurnOff();
         else TurnOn();
     }

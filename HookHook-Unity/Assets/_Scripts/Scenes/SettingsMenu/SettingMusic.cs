@@ -14,7 +14,6 @@ public class SettingMusic: MonoBehaviour
         isOn = PlayerPrefs.GetInt("MusicVolume");
         if (isOn == 0) TurnOff();
         else TurnOn();
-
     }
     public void OnClick()
     {

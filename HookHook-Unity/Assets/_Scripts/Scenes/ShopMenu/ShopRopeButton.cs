@@ -8,5 +8,6 @@ public class ShopRopeButton : MonoBehaviour
     public void OnClick()
     {
         shopSelection.SelectRopePanel();
+        AudioManager.AM.Play("Button");
     }
 }

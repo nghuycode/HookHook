@@ -7,6 +7,6 @@ public class StartStartButton : MonoBehaviour
     public void OnClick()
     {
         SceneSystem.SM.StartMenuToLevelMenu();
-
+        AudioManager.AM.Play("Button");
     }
 }

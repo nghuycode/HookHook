@@ -46,6 +46,7 @@ public class ShopGrid : MonoBehaviour
     {
         if(UserRepository.Buy(item))
         {
+         
             UnlockItem();
         }
     }
@@ -61,6 +62,7 @@ public class ShopGrid : MonoBehaviour
 
     public void SelectItem()
     {
+
         curState = state.isSelect;
         isSelect.SetActive(true);
         isBought.SetActive(false);

@@ -7,5 +7,6 @@ public class StartSettingButton : MonoBehaviour
     public void OnClick()
     {
         SceneSystem.SM.StartMenuToSettingsMenu();
+        AudioManager.AM.Play("Button");
     }
 }
