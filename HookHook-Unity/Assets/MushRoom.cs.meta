@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:HookHook-Unity/Assets/_Scripts/PControllers/Test.cs.meta
+guid: 1e865117e7319134c84e1d023bbf3593
+=======
 guid: 228804f33402c1d47b51603b49593b06
+>>>>>>> master:HookHook-Unity/Assets/MushRoom.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

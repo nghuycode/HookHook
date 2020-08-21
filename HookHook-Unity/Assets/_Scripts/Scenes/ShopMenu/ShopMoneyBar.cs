@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using PUser;
 using UnityEngine.UI;
-using TMPro;
+using PUser;
 
 public class ShopMoneyBar : MonoBehaviour
 {
-    
+    public Text MoneyText;
     int currentMoney;
-    public TextMeshProUGUI MoneyText;
+
     void Update()
     {
         currentMoney = GetMoneyFromUser();
