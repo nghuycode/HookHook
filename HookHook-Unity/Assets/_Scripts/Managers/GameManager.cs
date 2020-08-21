@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PUser;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,10 +13,11 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        CurrentLevel = PlayerPrefs.GetInt("CurrentLevel");
+        Debug.Log(PlayerPrefs.GetInt("CurrentLevel"));
     }
     private void Start()
     {
-        CurrentLevel = PlayerPrefs.GetInt("CurrentLevel");
         InitGame(CurrentLevel);
     }
     #endregion
@@ -26,8 +28,6 @@ public class GameManager : MonoBehaviour
     public event Action OnResumeGame;
     public event Action OnWinGame;
     public event Action OnLoseGame;
-    public event Action OnNextGame;
-    public event Action OnRestartGame;
 
     public event Action<float> OnUpdateProgressLevel;
     public event Action OnUpdateGem;
@@ -57,6 +57,11 @@ public class GameManager : MonoBehaviour
     }
     public void WinGame()
     {
+        CurrentLevel++;
+        if (UserRepository.User.Level < CurrentLevel)
+        {
+            UserRepository.User.Level = CurrentLevel;
+        }
         if (OnWinGame != null)
             OnWinGame();
     }
@@ -71,7 +76,7 @@ public class GameManager : MonoBehaviour
     }
     public void NextGame()
     {
-        InitGame(++CurrentLevel);
+        InitGame(CurrentLevel);
     }
     public void UpdateProgressLevel(float percentage)
     {

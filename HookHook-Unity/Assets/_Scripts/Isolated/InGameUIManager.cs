@@ -37,7 +37,7 @@ public class InGameUIManager : MonoBehaviour
     }
     IEnumerator WinGame()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         WinView.SetActive(true);
         Home.gameObject.SetActive(true);
         Pause.gameObject.SetActive(false);
@@ -71,5 +71,9 @@ public class InGameUIManager : MonoBehaviour
     public void RestartGame()
     {
         GameManager.Instance.RestartGame();
+    }
+    public void BackToHome()
+    {
+        SceneSystem.SM.GameMenuToLevelMenu();
     }
 }
