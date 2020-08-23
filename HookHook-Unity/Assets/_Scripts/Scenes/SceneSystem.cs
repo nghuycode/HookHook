@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneSystem : MonoBehaviour
 {
-    public GameObject StartMenu, ShopMenu, LevelMenu, SettingsMenu;
+    public GameObject StartMenu, ShopMenu, LevelMenu, SettingsMenu,LoadingScene;
   
     public static SceneSystem SM;
 
@@ -48,7 +48,6 @@ public class SceneSystem : MonoBehaviour
 
     public void LevelMenuToStartMenu()
     {
-        
         ActivateScene(StartMenu);
         DeactivateScene(LevelMenu);
     }
@@ -56,9 +55,11 @@ public class SceneSystem : MonoBehaviour
     public void LevelMenuToGameMenu()
     {
         DeactivateScene(LevelMenu);
-        SceneManager.LoadScene("DemoHook");
+        ActivateScene(LoadingScene);
+        Invoke("LoadGame", 2f);
     }
 
+   
     public void GameMenuToLevelMenu()
     {
         SceneManager.LoadScene("Menu");
@@ -78,7 +79,6 @@ public class SceneSystem : MonoBehaviour
     void ActivateScene(GameObject targetScene)
     {
         targetScene.SetActive(true);
-        
         SetAllChild(targetScene.GetComponent<SceneComponent>().control, true);
     }
 
@@ -88,4 +88,8 @@ public class SceneSystem : MonoBehaviour
         SetAllChild(targetScene.GetComponent<SceneComponent>().control, false);
     }
 
+    void LoadGame()
+    {
+        SceneManager.LoadScene("DemoHook");
+    }
 }
