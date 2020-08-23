@@ -9,7 +9,6 @@ public class Coin : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.name == "Player")
         {
-            UserRepository.AddMoney(1);
             AudioManager.AM.Play("EatCoin");
             animator.SetTrigger("EatCoin");
         }

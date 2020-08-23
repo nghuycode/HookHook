@@ -9,7 +9,7 @@ public class InGameUIManager : MonoBehaviour
 {
     public Button Pause, Home;
     public GameObject WinView, LoseView, PauseView, CoinView;
-    public TextMeshProUGUI Level, Coin, UserCoinWin;
+    public TextMeshProUGUI Level, Coin, UserCoinWin, Intro;
     public GameplayApp app;
     private void Start()
     {
@@ -27,6 +27,8 @@ public class InGameUIManager : MonoBehaviour
         Pause.gameObject.SetActive(true);
         Level.gameObject.SetActive(true);
         Level.text = "LEVEL\n" + (currentLevel + 1);
+        if (currentLevel == 0)
+            Intro.gameObject.SetActive(true);
         CoinView.SetActive(true);
         Coin.text = "x0";
     }

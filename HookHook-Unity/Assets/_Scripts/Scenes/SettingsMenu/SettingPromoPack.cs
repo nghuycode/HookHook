@@ -6,6 +6,6 @@ public class SettingPromoPack : MonoBehaviour
 {
     public void OnClick()
     {
-
+        //PUser.UserRepository.AddMoney(100);
     }
 }

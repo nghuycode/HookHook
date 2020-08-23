@@ -1365,7 +1365,17 @@ PrefabInstance:
     - target: {fileID: 6416993747238622323, guid: a821dc4310ac603469596f0984185729,
         type: 3}
       propertyPath: items.Array.data[6].Price
-      value: 9999
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6416993747238622323, guid: a821dc4310ac603469596f0984185729,
+        type: 3}
+      propertyPath: items.Array.data[3].Price
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 6416993747238622323, guid: a821dc4310ac603469596f0984185729,
+        type: 3}
+      propertyPath: items.Array.data[5].Price
+      value: 70
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a821dc4310ac603469596f0984185729, type: 3}

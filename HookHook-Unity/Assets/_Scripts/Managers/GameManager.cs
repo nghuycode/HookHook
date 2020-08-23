@@ -57,6 +57,8 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         CurrentLevel++;
+        if (CurrentLevel > 8)
+            CurrentLevel = 8;
         if (UserRepository.User.Level < CurrentLevel)
         {
             UserRepository.User.Level = CurrentLevel;
