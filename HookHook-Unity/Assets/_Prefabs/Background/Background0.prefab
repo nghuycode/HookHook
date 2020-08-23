@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 7661983866971591565}
   - component: {fileID: 7661983866971591564}
   m_Layer: 10
-  m_Name: Background
+  m_Name: Background0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -520,7 +520,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7661983866971591563}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 0340949e582506f4bba387ae3f829af4, type: 2}
   m_IsTrigger: 0

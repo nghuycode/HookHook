@@ -9,7 +9,8 @@ public class InGameUIManager : MonoBehaviour
 {
     public Button Pause, Home;
     public GameObject WinView, LoseView, PauseView, CoinView;
-    public TextMeshProUGUI Level, Coin;
+    public TextMeshProUGUI Level, Coin, UserCoinWin;
+    public GameplayApp app;
     private void Start()
     {
         GameManager.Instance.OnInitGame += OnInitGame;
@@ -25,7 +26,7 @@ public class InGameUIManager : MonoBehaviour
         Home.gameObject.SetActive(false);   
         Pause.gameObject.SetActive(true);
         Level.gameObject.SetActive(true);
-        Level.text = "LEVEL " + GameManager.Instance.CurrentLevel.ToString();
+        Level.text = "LEVEL\n" + GameManager.Instance.CurrentLevel.ToString();
         CoinView.SetActive(true);
         Coin.text = "x0";
 
@@ -38,6 +39,7 @@ public class InGameUIManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         WinView.SetActive(true);
+        UserCoinWin.text = "X" + app.model.PlayerModel.Money;
         Home.gameObject.SetActive(true);
         Pause.gameObject.SetActive(false);
     }
@@ -78,6 +80,6 @@ public class InGameUIManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
     }
     public void OnUpdateCoin(int coinCount) {
-        Coin.text = "x" + coinCount.ToString();
+        Coin.text = "X  " + coinCount.ToString();
     }
 }
