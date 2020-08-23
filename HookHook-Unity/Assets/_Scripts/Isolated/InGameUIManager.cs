@@ -26,10 +26,9 @@ public class InGameUIManager : MonoBehaviour
         Home.gameObject.SetActive(false);   
         Pause.gameObject.SetActive(true);
         Level.gameObject.SetActive(true);
-        Level.text = "LEVEL\n" + GameManager.Instance.CurrentLevel.ToString();
+        Level.text = "LEVEL\n" + (currentLevel + 1);
         CoinView.SetActive(true);
         Coin.text = "x0";
-
     }
     public void PopUpWin()
     {
@@ -80,6 +79,6 @@ public class InGameUIManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
     }
     public void OnUpdateCoin(int coinCount) {
-        Coin.text = "X  " + coinCount.ToString();
+        Coin.text = "X" + coinCount.ToString();
     }
 }
