@@ -18,6 +18,7 @@ public class LevelGrid : MonoBehaviour
     public void OnClick()
     {
         PlayerPrefs.SetInt("CurrentLevel", gridID);
+        AudioManager.AM.Play("Button");
         SceneSystem.SM.LevelMenuToGameMenu();
     }
 
