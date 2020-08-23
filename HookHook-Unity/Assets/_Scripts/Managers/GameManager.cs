@@ -27,9 +27,7 @@ public class GameManager : MonoBehaviour
     public event Action OnResumeGame;
     public event Action OnWinGame;
     public event Action OnLoseGame;
-
-    public event Action<float> OnUpdateProgressLevel;
-    public event Action OnUpdateGem;
+    public event Action<int> OnUpdateCoin;
 
     public void InitGame(int currentLevel)
     {
@@ -79,15 +77,10 @@ public class GameManager : MonoBehaviour
     {
         InitGame(CurrentLevel);
     }
-    public void UpdateProgressLevel(float percentage)
+    public void UpdateCoin(int coinCount)
     {
-        if (OnUpdateProgressLevel != null)
-            OnUpdateProgressLevel.Invoke(percentage);
-    }
-    public void UpdateGem()
-    {
-        if (OnUpdateGem != null)
-            OnUpdateGem();
+        if (OnUpdateCoin != null)
+            OnUpdateCoin.Invoke(coinCount);
     }
     #endregion
 }

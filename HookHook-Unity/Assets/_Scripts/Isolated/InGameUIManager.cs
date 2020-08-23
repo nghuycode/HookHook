@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.UI;
+using TMPro;
 
 public class InGameUIManager : MonoBehaviour
 {
     public Button Pause, Home;
-    public GameObject WinView, LoseView, PauseView;
-
+    public GameObject WinView, LoseView, PauseView, CoinView;
+    public TextMeshProUGUI Level, Coin;
     private void Start()
     {
         GameManager.Instance.OnInitGame += OnInitGame;
         GameManager.Instance.OnWinGame += PopUpWin;
         GameManager.Instance.OnLoseGame += PopUpLose;
-        GameManager.Instance.OnUpdateProgressLevel += OnUpdateProgress;
+        GameManager.Instance.OnUpdateCoin += OnUpdateCoin;
     }
     public void OnInitGame(int currentLevel)
     {
@@ -23,12 +24,11 @@ public class InGameUIManager : MonoBehaviour
         PauseView.SetActive(false);
         Home.gameObject.SetActive(false);   
         Pause.gameObject.SetActive(true);
-     
-    }
-    public void OnUpdateProgress(float percentage)
-    {
-        if (percentage < 0) percentage = 0;
-        AnchorProgress.value = percentage;
+        Level.gameObject.SetActive(true);
+        Level.text = "LEVEL " + GameManager.Instance.CurrentLevel.ToString();
+        CoinView.SetActive(true);
+        Coin.text = "x0";
+
     }
     public void PopUpWin()
     {
@@ -40,14 +40,12 @@ public class InGameUIManager : MonoBehaviour
         WinView.SetActive(true);
         Home.gameObject.SetActive(true);
         Pause.gameObject.SetActive(false);
-      
     }
     public void PopUpLose()
     { 
         LoseView.SetActive(true);
         Home.gameObject.SetActive(true);
         Pause.gameObject.SetActive(false);
-     
     }
     public void PauseGame()
     {
@@ -78,5 +76,8 @@ public class InGameUIManager : MonoBehaviour
         AudioManager.AM.Play("Button");
         Time.timeScale = 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+    }
+    public void OnUpdateCoin(int coinCount) {
+        Coin.text = "x" + coinCount.ToString();
     }
 }

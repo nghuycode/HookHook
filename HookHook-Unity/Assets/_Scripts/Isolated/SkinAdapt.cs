@@ -10,13 +10,16 @@ public class SkinAdapt : MonoBehaviour
     public RuntimeAnimatorController[] PlayerSkinAnimators;
 
     public Color32[] Colors;
-    void Start()
+
+    public GameObject[] BGSkins;
+    private void Awake()
     {
-        GameManager.Instance.OnStartGame += AdaptSkin;
+        GameManager.Instance.OnInitGame += AdaptSkin;
     }
 
-    public void AdaptSkin()
+    public void AdaptSkin(int currentLevel)
     {
+        Debug.Log("Adapt Skin");
         //Player
         AdaptPlayer();
         //Rope
@@ -32,13 +35,15 @@ public class SkinAdapt : MonoBehaviour
     }
     private void AdaptRope()
     {
-        int ID = UserRepository.User.currentRope.Id % 30;
+        int ID = UserRepository.User.currentRope.Id % 60;
         Rope.GetComponent<LineRenderer>().startColor = Color.white;
         Rope.GetComponent<LineRenderer>().endColor = Colors[ID];
     }
     private void AdaptBackground()
     {
-
+        int ID = UserRepository.User.currentBackground.Id % 30;
+        Debug.Log(ID);
+        Instantiate(BGSkins[ID]);
     }
 
 }
