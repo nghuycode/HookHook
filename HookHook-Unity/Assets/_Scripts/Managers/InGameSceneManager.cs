@@ -1,4 +1,4 @@
-using UnityEngine;
+ using UnityEngine;
 
 public class InGameSceneManager : MonoBehaviour
 {
@@ -12,11 +12,14 @@ public class InGameSceneManager : MonoBehaviour
         if (this.transform.childCount > 0)
         GameObject.Destroy(this.transform.GetChild(0).gameObject);
         //Instantiate level
-        if (id < LevelPrefabList.Length -1)
+        if (id < LevelPrefabList.Length)
         {
             GameObject level = Instantiate(LevelPrefabList[id],Vector3.zero,Quaternion.identity);
             level.transform.SetParent(this.transform);
         }
-        else Debug.Log("<color=green> Out of level</color>");
+        else {
+            GameObject level = Instantiate(LevelPrefabList[LevelPrefabList.Length - 1],Vector3.zero,Quaternion.identity);
+            level.transform.SetParent(this.transform);
+        }
     }
 }
