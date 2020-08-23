@@ -16,9 +16,9 @@ MonoBehaviour:
   clientTokens:
   - 
   appIds:
-  - 0
+  - 772214000204463
   appLabels:
-  - App Name
+  - HookHook
   cookie: 1
   logging: 1
   status: 1
