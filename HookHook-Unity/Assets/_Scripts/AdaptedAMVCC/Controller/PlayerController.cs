@@ -15,11 +15,6 @@ public class PlayerController : Controller<GameplayApp>
         GameManager.Instance.OnPauseGame += DisableCanPlay;
         GameManager.Instance.OnResumeGame += EnableCanPlay;
     }
-    public void RetrieveDataFromUser()
-    {
-        app.model.PlayerModel.SkinPlayerID = UserRepository.User.currentSkin.Id;
-        app.model.PlayerModel.SkinRopeID = UserRepository.User.currentRope.Id;
-    }
     public void ResetPlayer(int currentLevel)
     {
         DeactivePlayer();
