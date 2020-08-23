@@ -18,56 +18,40 @@ public class SceneSystem : MonoBehaviour
     }
     public void StartMenuToSettingsMenu()
     {
-        ActivateScene(SettingsMenu);
-        DeactivateScene(StartMenu);
+        StartCoroutine(ChangeScene(StartMenu, SettingsMenu));
     }
 
     public void SettingsMenuToStartMenu()
     {
-        ActivateScene(StartMenu);
-        DeactivateScene(SettingsMenu);
+        StartCoroutine(ChangeScene(SettingsMenu, StartMenu));
     }
 
     public void StartMenuToShopMenu()
     {
-        ActivateScene(ShopMenu);
-        DeactivateScene(StartMenu);
+        StartCoroutine(ChangeScene(StartMenu, ShopMenu));
     }
 
     public void ShopMenuToStartMenu()
     {
-        ActivateScene(StartMenu);
-        DeactivateScene(ShopMenu);
+        StartCoroutine(ChangeScene(ShopMenu, StartMenu));
     }
 
     public void StartMenuToLevelMenu()
     {
-        ActivateScene(LevelMenu);
-        DeactivateScene(StartMenu);
+        StartCoroutine(ChangeScene(StartMenu, LevelMenu));
     }
 
     public void LevelMenuToStartMenu()
     {
-        ActivateScene(StartMenu);
-        DeactivateScene(LevelMenu);
+        StartCoroutine(ChangeScene(LevelMenu, StartMenu));
     }
 
     public void LevelMenuToGameMenu()
     {
-        DeactivateScene(LevelMenu);
-        ActivateScene(LoadingScene);
-        Invoke("LoadGame", 2f);
+        StartCoroutine(LoadGame(LevelMenu));        
+        
     }
 
-   
-    public void GameMenuToLevelMenu()
-    {
-        SceneManager.LoadScene("Menu");
-        StartMenu = GameObject.Find("StartMenu");
-        ShopMenu = GameObject.Find("ShopMenu");
-        LevelMenu = GameObject.Find("LevelMenu");
-        SettingsMenu = GameObject.Find("SettingMenu");
-    }
 
     void SetAllChild(GameObject targetObject, bool activeState)
     {
@@ -76,22 +60,37 @@ public class SceneSystem : MonoBehaviour
             SetAllChild(targetObject.transform.GetChild(i).gameObject, activeState);
     }
     
+    IEnumerator ChangeScene(GameObject sceneA, GameObject sceneB)
+    {
+        sceneA.GetComponent<SceneComponent>().SetOff();
+        yield return new WaitForSeconds(.3f);
+        DeactivateScene(sceneA);
+        ActivateScene(sceneB);
+        sceneB.GetComponent<SceneComponent>().SetOn();
+        yield return null;
+    }
     void ActivateScene(GameObject targetScene)
     {
+
         targetScene.SetActive(true);
         SetAllChild(targetScene.GetComponent<SceneComponent>().control, true);
-        
     }
+    
 
     void DeactivateScene(GameObject targetScene)
-    {
-       
+    {   
         targetScene.SetActive(false);
         SetAllChild(targetScene.GetComponent<SceneComponent>().control, false);
     }
 
-    void LoadGame()
+
+
+    IEnumerator LoadGame(GameObject LevelMenu)
     {
+        DeactivateScene(LevelMenu);
+        ActivateScene(LoadingScene);
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("DemoHook");
+        
     }
 }
