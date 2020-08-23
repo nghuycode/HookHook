@@ -8,24 +8,6 @@ namespace PFacebook
     public class MyFacebook
     {
         List<string> permissions = new List<string>() { "public_profile", "email"};
-        public MyFacebook()
-        {
-            if (!FB.IsInitialized)
-                FB.Init(() =>
-                {
-                    if (FB.IsInitialized)
-                        FB.ActivateApp();
-                },
-                isGameShown =>
-                {
-                    if (!isGameShown)
-                        Time.timeScale = 0;
-                    else
-                        Time.timeScale = 1;
-                });
-            else
-                FB.ActivateApp();
-        }
 
         public void Login()
         {

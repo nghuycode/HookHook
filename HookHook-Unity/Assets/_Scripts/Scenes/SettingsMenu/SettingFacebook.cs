@@ -1,10 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Facebook.Unity;
 
 using PFacebook;
 public class SettingFacebook : MonoBehaviour
 {
+    private void Awake() {
+        if (!FB.IsInitialized)
+            FB.Init();
+    }
     public void OnClick()
     {
         //FacebookRepository.MyFacebook.Login();
