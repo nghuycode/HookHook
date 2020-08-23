@@ -80,6 +80,7 @@ public class PlayerController : Controller<GameplayApp>
     public void PlayerCollectMoney()
     {
         app.model.PlayerModel.Money++;
+        GameManager.Instance.UpdateCoin(app.model.PlayerModel.Money);
     }
     public void PlayerWin()
     {
@@ -97,9 +98,5 @@ public class PlayerController : Controller<GameplayApp>
         app.view.PlayerView.OnPlayerLose();
         GameManager.Instance.LoseGame();
         Debug.Log("Lose");
-    }
-    public void UpdateProgressMap(float percentage)
-    {
-        GameManager.Instance.UpdateProgressLevel(percentage);
     }
 }

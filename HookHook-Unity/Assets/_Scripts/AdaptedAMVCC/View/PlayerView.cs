@@ -33,7 +33,6 @@ public class PlayerView : View<GameplayApp>
             flipWithVelocity();
             animationPlayer();
             checkPlayerOutBorder();
-            checkPlayerProgressMap();
         }
     }
     #endregion
@@ -73,12 +72,6 @@ public class PlayerView : View<GameplayApp>
                 app.controller.PlayerController.PlayerLose();
             }
         }
-    }
-    private void checkPlayerProgressMap()
-    {
-        float distanceMax = (borderRight - borderLeft);
-        float distanceCur = (this.transform.position.x - borderLeft);
-        app.controller.PlayerController.UpdateProgressMap(distanceCur / distanceMax);
     }
     public void OnShootRope()
     {
