@@ -8,7 +8,7 @@ public class ShopSkinButton : MonoBehaviour
     public void OnClick()
     {
         shopSelect.SelectSkinPanel();
-        AudioManager.AM.Play("Buy");
+        AudioManager.AM.Play("Button");
 
     }
 }

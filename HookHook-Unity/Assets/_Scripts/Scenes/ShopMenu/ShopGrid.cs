@@ -32,12 +32,14 @@ public class ShopGrid : MonoBehaviour
     {
         if(curState == state.isLocked)
         {
+            AudioManager.AM.Play("Buy");
             BuyItem();
         }
         else if(curState == state.isUnselect)
         {
             baseManager.shopGrid[baseManager.GetGridIndex(UserRepository.Select(item).Id)].DeSelectItem(); //Get
             ShopPanelUser.SPU.UpdateImg(ModelManager.MM.GetModel(item.Id));
+            AudioManager.AM.Play("UseItem");
             SelectItem();
         }
     }
