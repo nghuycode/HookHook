@@ -80,10 +80,12 @@ public class SceneSystem : MonoBehaviour
     {
         targetScene.SetActive(true);
         SetAllChild(targetScene.GetComponent<SceneComponent>().control, true);
+        
     }
 
     void DeactivateScene(GameObject targetScene)
     {
+       
         targetScene.SetActive(false);
         SetAllChild(targetScene.GetComponent<SceneComponent>().control, false);
     }

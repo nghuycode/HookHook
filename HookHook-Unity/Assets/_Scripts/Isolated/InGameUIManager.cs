@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class InGameUIManager : MonoBehaviour
 {
     public Button Pause, Home;
-    public GameObject WinView, LoseView, ProgressView, PauseView;
-    public Slider AnchorProgress;
+    public GameObject WinView, LoseView, PauseView;
+
     private void Start()
     {
         GameManager.Instance.OnInitGame += OnInitGame;
@@ -23,8 +23,7 @@ public class InGameUIManager : MonoBehaviour
         PauseView.SetActive(false);
         Home.gameObject.SetActive(false);   
         Pause.gameObject.SetActive(true);
-        ProgressView.SetActive(true);
-        AnchorProgress.value = 0;
+     
     }
     public void OnUpdateProgress(float percentage)
     {
@@ -41,14 +40,14 @@ public class InGameUIManager : MonoBehaviour
         WinView.SetActive(true);
         Home.gameObject.SetActive(true);
         Pause.gameObject.SetActive(false);
-        ProgressView.SetActive(false);
+      
     }
     public void PopUpLose()
     { 
         LoseView.SetActive(true);
         Home.gameObject.SetActive(true);
         Pause.gameObject.SetActive(false);
-        ProgressView.SetActive(false);
+     
     }
     public void PauseGame()
     {

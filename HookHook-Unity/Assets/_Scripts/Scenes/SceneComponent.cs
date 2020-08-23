@@ -5,4 +5,5 @@ using UnityEngine;
 public class SceneComponent : MonoBehaviour
 {
     public GameObject control;
+ 
 }
