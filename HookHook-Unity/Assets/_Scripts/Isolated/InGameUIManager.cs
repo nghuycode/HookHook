@@ -8,7 +8,7 @@ using TMPro;
 public class InGameUIManager : MonoBehaviour
 {
     public Button Pause, Home;
-    public GameObject WinView, LoseView, ProgressView, PauseView, CoinView;
+    public GameObject WinView, LoseView, PauseView, CoinView;
     public TextMeshProUGUI Level, Coin;
     private void Start()
     {
@@ -24,7 +24,6 @@ public class InGameUIManager : MonoBehaviour
         PauseView.SetActive(false);
         Home.gameObject.SetActive(false);   
         Pause.gameObject.SetActive(true);
-        ProgressView.SetActive(true);
         Level.gameObject.SetActive(true);
         Level.text = "LEVEL " + GameManager.Instance.CurrentLevel.ToString();
         CoinView.SetActive(true);
@@ -41,14 +40,12 @@ public class InGameUIManager : MonoBehaviour
         WinView.SetActive(true);
         Home.gameObject.SetActive(true);
         Pause.gameObject.SetActive(false);
-        ProgressView.SetActive(false);
     }
     public void PopUpLose()
     { 
         LoseView.SetActive(true);
         Home.gameObject.SetActive(true);
         Pause.gameObject.SetActive(false);
-        ProgressView.SetActive(false);
     }
     public void PauseGame()
     {
