@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
             GameObject.Destroy(AM);
         else
             AM = this;
+        CheckInstanceSettings();
         CheckSettings();
         GetAudio();
     }
@@ -25,12 +26,19 @@ public class AudioManager : MonoBehaviour
         for (int i = 0; i < audioList.transform.childCount; i++)
             audioClip.Add(audioList.transform.GetChild(i).GetComponent<Audio>());
     }
+    void CheckInstanceSettings()
+    {
+        if (PlayerPrefs.GetInt("SoundVolume") == 0)
+            PlayerPrefs.SetInt("SoundVolume", 1);
+        if (PlayerPrefs.GetInt("MusicVolume") == 0)
+            PlayerPrefs.SetInt("MusicVolume", 1);
+    }
     void CheckSettings()
     {
-        if (PlayerPrefs.GetInt("SoundVolume") == 0) TurnOffSound();
-        else TurnOnSound();
-        if (PlayerPrefs.GetInt("MusicVolume") == 0) TurnOffMusic();
-        else TurnOnMusic();
+        if (PlayerPrefs.GetInt("SoundVolume") == 1) TurnOnSound();
+        else TurnOffSound();
+        if (PlayerPrefs.GetInt("MusicVolume") == 1) TurnOnMusic();
+        else TurnOffMusic();
 
     }
     void Attach(Audio audio)
@@ -85,26 +93,26 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    void TurnOffSound()
+    public void TurnOffSound()
     {
         AudioManager.AM.UIThread.volume = 0;
         for (int i = 0; i < AudioManager.AM.GamePlayThread.Length; i++)
             AudioManager.AM.GamePlayThread[i].volume = 0;
     }
 
-    void TurnOnSound()
+    public void TurnOnSound()
     {
         AudioManager.AM.UIThread.volume = 1;
         for (int i = 0; i < AudioManager.AM.GamePlayThread.Length; i++)
             AudioManager.AM.GamePlayThread[i].volume = .5f;
     }
 
-    void TurnOffMusic()
+    public void TurnOffMusic()
     { 
         AudioManager.AM.MusicThread.volume = 0;
     }
 
-    void TurnOnMusic()
+    public void TurnOnMusic()
     {
         AudioManager.AM.MusicThread.volume = 1;
     }

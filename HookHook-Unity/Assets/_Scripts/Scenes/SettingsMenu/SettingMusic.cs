@@ -7,12 +7,12 @@ public class SettingMusic: MonoBehaviour
 {
     public Image ModelOn, ModelOff;
     public Button button;
-    int isOn;//1 on,0 off
+    int isOn;//1 on,-1 off
 
     void Awake()
     {
         isOn = PlayerPrefs.GetInt("MusicVolume");
-        if (isOn == 0) TurnOff();
+        if (isOn == -1) TurnOff();
         else TurnOn();
     }
     public void OnClick()
@@ -24,10 +24,10 @@ public class SettingMusic: MonoBehaviour
 
     void TurnOff()
     {
-        isOn = 0;
+        isOn = -1;
         PlayerPrefs.SetInt("MusicVolume", isOn);
         button.image.sprite = ModelOff.sprite;
-        AudioManager.AM.MusicThread.volume = 0;
+        AudioManager.AM.TurnOffMusic();
     }
 
     void TurnOn()
@@ -35,6 +35,6 @@ public class SettingMusic: MonoBehaviour
         isOn = 1;
         PlayerPrefs.SetInt("MusicVolume", isOn);
         button.image.sprite = ModelOn.sprite;
-        AudioManager.AM.MusicThread.volume = 1;
+        AudioManager.AM.TurnOnMusic();
     }
 }
