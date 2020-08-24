@@ -32,6 +32,7 @@ public class PlayerController : Controller<GameplayApp>
     public void DeactivePlayer()
     {
         app.model.PlayerModel.CanPlay = false;
+        app.model.PlayerModel.Money = 0;
 
         this.transform.position = app.model.PlayerModel.DefaultPosition;
         app.view.PlayerView.sprite.enabled = false;
