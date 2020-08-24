@@ -502,7 +502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &117380046
 Transform:
   m_ObjectHideFlags: 0
@@ -1361,6 +1361,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PShop
+      objectReference: {fileID: 0}
+    - target: {fileID: 6416993747238622322, guid: a821dc4310ac603469596f0984185729,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6416993747238622323, guid: a821dc4310ac603469596f0984185729,
         type: 3}
