@@ -6,11 +6,11 @@
 ## Đội ngũ phát triển ##
 - Nguyễn Gia Huy - nghuycode@gmail.com - 18125132
 - Lê Hoàng Minh - leehoanminh@gmail.com - 18125134
-- Trần Thiên Phúc - tthienphuc@gmail.com - 18125137
+- Trần Thiên Phúc - tranthienphuc2809@gmail.com - 18125137
 - Nguyễn Nhật Long - nhatlongcode@gmail.com
 - Lê Thanh Nhã - daisychama201@gmail.com
 ## Unity version ##
-Unity 2019.4.f1
+Unity 2019.4.1f1
 
 ## Resources ref ##
 - Tất cả hình ảnh trong game được chính artist Lê Thanh Nhã thiết kế
