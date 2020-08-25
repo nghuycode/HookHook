@@ -14,5 +14,5 @@
 Unity 2019.4.f1
 
 ## Resources ref ##
-Tất cả hình ảnh trong game được chính artist của team là Lê Thanh Nhã thiết kế
-Âm thanh hiệu ứng được tìm ở storyblocks.com
+- Tất cả hình ảnh trong game được chính artist Lê Thanh Nhã thiết kế
+- Âm thanh hiệu ứng được tìm ở storyblocks.com
