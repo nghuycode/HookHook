@@ -182,6 +182,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 528002807}
     m_Modifications:
+    - target: {fileID: 5231944679317722953, guid: 31aa6132da1ff4942b8cec734f7948b8,
+        type: 3}
+      propertyPath: ShapeModule.type
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231944679317722953, guid: 31aa6132da1ff4942b8cec734f7948b8,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 58.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231944679317722953, guid: 31aa6132da1ff4942b8cec734f7948b8,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231944679317722953, guid: 31aa6132da1ff4942b8cec734f7948b8,
+        type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356541720489169223, guid: 31aa6132da1ff4942b8cec734f7948b8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356541720489169223, guid: 31aa6132da1ff4942b8cec734f7948b8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.83
+      objectReference: {fileID: 0}
     - target: {fileID: 8796329214139745371, guid: 31aa6132da1ff4942b8cec734f7948b8,
         type: 3}
       propertyPath: m_IsActive
