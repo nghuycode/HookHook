@@ -9,6 +9,4 @@ public class Audio: MonoBehaviour
     public enum AudioType { music, uiSound, gameSound }
     public AudioType type;
 
-
-
 }
