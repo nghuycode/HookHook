@@ -10,9 +10,9 @@
 - Nguyễn Nhật Long - nhatlongcode@gmail.com
 - Lê Thanh Nhã - ltnhaheo@gmail.com
 
-##Unity version##
+## Unity version ##
 Unity 2019.4.f1
 
-##Resources ref##
+## Resources ref ##
 Tất cả hình ảnh trong game được chính artist của team là Lê Thanh Nhã thiết kế
 Âm thanh hiệu ứng được tìm ở storyblocks.com
