@@ -12,6 +12,7 @@
 ## Unity version ##
 Unity 2019.4.1f1
 
-## Resources ref ##
+## Resources reference ##
 - Tất cả hình ảnh trong game được chính artist Lê Thanh Nhã thiết kế
 - Âm thanh hiệu ứng được tìm ở storyblocks.com
+- Partivcle effect sử dụng bộ particle free của Synty Studio (https://assetstore.unity.com/packages/vfx/particles/simple-fx-cartoon-particles-67834)
