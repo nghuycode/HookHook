@@ -8,8 +8,7 @@
 - Lê Hoàng Minh - leehoanminh@gmail.com - 18125134
 - Trần Thiên Phúc - tthienphuc@gmail.com - 18125137
 - Nguyễn Nhật Long - nhatlongcode@gmail.com
-- Lê Thanh Nhã - ltnhaheo@gmail.com
-
+- Lê Thanh Nhã - daisychama201@gmail.com
 ## Unity version ##
 Unity 2019.4.f1
 
