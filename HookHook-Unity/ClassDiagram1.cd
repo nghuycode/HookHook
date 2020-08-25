@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SceneSystem">
+    <Position X="1.75" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAABAIAAAAgABQCAAAUACACAEAAAgBEAAAAAAAgkE=</HashCode>
+      <FileName>Assets\_Scripts\Scenes\SceneSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

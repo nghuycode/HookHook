@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneSystem : MonoBehaviour
 {
     public GameObject StartMenu, ShopMenu, LevelMenu, SettingsMenu,LoadingScene;
-  
+    public GameObject BlockCanvas;
     public static SceneSystem SM;
 
     void Awake()
@@ -63,10 +63,12 @@ public class SceneSystem : MonoBehaviour
     IEnumerator ChangeScene(GameObject sceneA, GameObject sceneB)
     {
         sceneA.GetComponent<SceneComponent>().SetOff();
+        BlockCanvas.SetActive(true);
         yield return new WaitForSeconds(.3f);
         DeactivateScene(sceneA);
         ActivateScene(sceneB);
         sceneB.GetComponent<SceneComponent>().SetOn();
+        BlockCanvas.SetActive(false);
         yield return null;
     }
     void ActivateScene(GameObject targetScene)

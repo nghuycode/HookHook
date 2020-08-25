@@ -7,12 +7,12 @@ public class SettingSound : MonoBehaviour
 {
     public Image ModelOn, ModelOff;
     public Button button;
-    int isOn;//1 on,0 off
+    int isOn;//1 on,-1 off
 
     void Awake()
     {
         isOn = PlayerPrefs.GetInt("SoundVolume");
-        if (isOn == 0) TurnOff();
+        if (isOn == -1) TurnOff();
         else TurnOn();
 
     }
@@ -24,12 +24,10 @@ public class SettingSound : MonoBehaviour
 
     void TurnOff()
     {
-        isOn = 0;
+        isOn = -1;
         PlayerPrefs.SetInt("SoundVolume", isOn);
         button.image.sprite = ModelOff.sprite;
-        AudioManager.AM.UIThread.volume = 0;
-        for (int i = 0; i < AudioManager.AM.GamePlayThread.Length; i++)
-            AudioManager.AM.GamePlayThread[i].volume = 0;
+        AudioManager.AM.TurnOffSound();
     }
 
     void TurnOn()
@@ -37,8 +35,6 @@ public class SettingSound : MonoBehaviour
         isOn = 1;
         PlayerPrefs.SetInt("SoundVolume", isOn);
         button.image.sprite = ModelOn.sprite;
-        AudioManager.AM.UIThread.volume = 1;
-        for (int i = 0; i < AudioManager.AM.GamePlayThread.Length; i++)
-            AudioManager.AM.GamePlayThread[i].volume = 0;
+        AudioManager.AM.TurnOnSound();
     }
 }
