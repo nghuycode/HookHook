@@ -16,8 +16,7 @@ public class EnemyRange : MonoBehaviour
 
     private void Update()
     {
-
-            transform.position = Vector3.MoveTowards(transform.position,player.transform.position,Speed*Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position,player.transform.position,Speed*Time.deltaTime);
     }
     private void OnDrawGizmosSelected() {
         Gizmos.DrawSphere(transform.position, Range);
