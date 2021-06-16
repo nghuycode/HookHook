@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    static public AudioManager AM;
+    public static AudioManager AM;
     public AudioSource MusicThread, UIThread;
     public AudioSource[] GamePlayThread;
     public GameObject audioList;
@@ -17,8 +17,8 @@ public class AudioManager : MonoBehaviour
             GameObject.Destroy(AM);
         else
             AM = this;
-        CheckInstanceSettings();
-        CheckSettings();
+        //CheckInstanceSettings();
+        //CheckSettings();
         GetAudio();
     }
     void GetAudio()
@@ -26,21 +26,7 @@ public class AudioManager : MonoBehaviour
         for (int i = 0; i < audioList.transform.childCount; i++)
             audioClip.Add(audioList.transform.GetChild(i).GetComponent<Audio>());
     }
-    void CheckInstanceSettings()
-    {
-        if (PlayerPrefs.GetInt("SoundVolume") == 0)
-            PlayerPrefs.SetInt("SoundVolume", 1);
-        if (PlayerPrefs.GetInt("MusicVolume") == 0)
-            PlayerPrefs.SetInt("MusicVolume", 1);
-    }
-    void CheckSettings()
-    {
-        if (PlayerPrefs.GetInt("SoundVolume") == 1) TurnOnSound();
-        else TurnOffSound();
-        if (PlayerPrefs.GetInt("MusicVolume") == 1) TurnOnMusic();
-        else TurnOffMusic();
-
-    }
+  
     void Attach(Audio audio)
     {
         if (audio.type == Audio.AudioType.music)
@@ -95,25 +81,21 @@ public class AudioManager : MonoBehaviour
 
     public void TurnOffSound()
     {
-        AudioManager.AM.UIThread.volume = 0;
-        for (int i = 0; i < AudioManager.AM.GamePlayThread.Length; i++)
-            AudioManager.AM.GamePlayThread[i].volume = 0;
+
     }
 
     public void TurnOnSound()
     {
-        AudioManager.AM.UIThread.volume = 1;
-        for (int i = 0; i < AudioManager.AM.GamePlayThread.Length; i++)
-            AudioManager.AM.GamePlayThread[i].volume = .5f;
+        
     }
 
     public void TurnOffMusic()
-    { 
-        AudioManager.AM.MusicThread.volume = 0;
+    {
+
     }
 
     public void TurnOnMusic()
     {
-        AudioManager.AM.MusicThread.volume = 1;
+        
     }
 }

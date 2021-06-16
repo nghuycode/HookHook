@@ -11,4 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/DemoHook.unity
     guid: f19d4b98a4fe13645b9c329d1dabba7c
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: cdc4b167e62bab146acf9bd8eed51eb7,
+      type: 2}
