@@ -43,7 +43,6 @@ public class SkinAdapt : MonoBehaviour
     {
         if (GameObject.Find("Background") == null) {
             int ID = UserRepository.User.currentBackground.Id % 30;
-            Debug.Log(ID);
             GameObject GO = Instantiate(BGSkins[ID]);
             GO.name = "Background";
         }

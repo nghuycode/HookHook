@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: 4d022ee420662744aa7f83782dacc196
   m_SerializeEntries:
   - m_GUID: f19d4b98a4fe13645b9c329d1dabba7c
-    m_Address: Assets/_Scenes/DemoHook.unity
+    m_Address: HookHook
     m_ReadOnly: 0
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}

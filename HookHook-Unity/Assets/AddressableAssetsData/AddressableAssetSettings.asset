@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DefaultGroup: f073876511cd18941a7a85aada2c4be5
   m_OptimizeCatalogSize: 0
-  m_BuildRemoteCatalog: 0
+  m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
   m_DisableCatalogUpdateOnStart: 0
   m_IgnoreUnsupportedFilesInBuild: 0
@@ -22,9 +22,9 @@ MonoBehaviour:
   m_maxConcurrentWebRequests: 500
   m_ContiguousBundles: 0
   m_RemoteCatalogBuildPath:
-    m_Id: 
+    m_Id: 4dcc1e5381db278479e93c10d4876081
   m_RemoteCatalogLoadPath:
-    m_Id: 
+    m_Id: 9ffe224876edd4546a647bcb7477be59
   m_overridePlayerVersion: 
   m_GroupAssets:
   - {fileID: 11400000, guid: b63b8029bc48bf040b9f8322120b2176, type: 2}
@@ -64,7 +64,7 @@ MonoBehaviour:
       - m_Id: 4dcc1e5381db278479e93c10d4876081
         m_Value: ServerData/[BuildTarget]
       - m_Id: 9ffe224876edd4546a647bcb7477be59
-        m_Value: http://localhost/[BuildTarget]
+        m_Value: https://github.com/nghuycode/HookHook/blob/AddressableTestBranch/HookHook-Unity/ServerData/[BuildTarget]
     m_ProfileEntryNames:
     - m_Id: d795c01307d4ba34caa7b6bbe97f05af
       m_Name: BuildTarget
@@ -98,7 +98,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 70b644e7293e1114ab083ab11193c0e0, type: 2}
   - {fileID: 11400000, guid: a647f40e4e356664a8c0e3d9a0474f08, type: 2}
   - {fileID: 11400000, guid: c46e26741f6f9aa42ad5d2faaa1b6684, type: 2}
-  m_ActiveProfileId: 0dcaae5302ae1c04ea4e37a62f31e563
+  m_ActiveProfileId: 3e5689539ecc4194cb9a97c1cec874bf
   m_HostingServicesManager:
     m_HostingServiceInfos: []
     m_Settings: {fileID: 11400000}
