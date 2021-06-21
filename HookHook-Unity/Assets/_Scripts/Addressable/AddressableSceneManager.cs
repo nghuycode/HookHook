@@ -25,7 +25,7 @@ public class AddressableSceneManager : MonoBehaviour
         for (int i = 0; i < GameScenes.Length; ++i)
             if (GameScenes[i].NameScene == nameScene)
                 return GameScenes[i].RealScene;
-        Debug.LogWarning("We can find that scene !!!");
+        Debug.LogWarning("We can't find that scene !!!");
         return null;
     }
     private IEnumerator DownloadScene(AssetReference scene) 
@@ -39,7 +39,6 @@ public class AddressableSceneManager : MonoBehaviour
             Debug.Log("Downloading:" + progress);
             yield return null;
         }
-        //LogText.text += "\n" +  "Downloaded scene";
         Debug.Log("Downloading:" + downloadScene.GetDownloadStatus().Percent * 100);
         Debug.Log("Downloaded scene");
     }
@@ -63,6 +62,7 @@ public class AddressableSceneManager : MonoBehaviour
     {
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
+        Addressables.ClearResourceLocators();
     }
     #endregion
 }
