@@ -62,7 +62,10 @@ public class AddressableSceneManager : MonoBehaviour
     {
         Instance = this;
         DontDestroyOnLoad(this.gameObject);
+
+    #if UNITY_EDITOR
         Addressables.ClearResourceLocators();
+    #endif
     }
     #endregion
 }
