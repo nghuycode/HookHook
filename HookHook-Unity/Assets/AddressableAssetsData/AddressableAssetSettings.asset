@@ -29,7 +29,7 @@ MonoBehaviour:
   m_GroupAssets:
   - {fileID: 11400000, guid: b63b8029bc48bf040b9f8322120b2176, type: 2}
   - {fileID: 11400000, guid: 896c47cd1379dd84f9a217a2036c0297, type: 2}
-  - {fileID: 11400000, guid: 2008dfcc4b9b18d419e2db29371d6da0, type: 2}
+  - {fileID: 11400000, guid: 2823a6735182b904dad2786a6d6b66dc, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -50,7 +50,7 @@ MonoBehaviour:
       - m_Id: 4dcc1e5381db278479e93c10d4876081
         m_Value: ServerData/[BuildTarget]
       - m_Id: 9ffe224876edd4546a647bcb7477be59
-        m_Value: http://localhost/[BuildTarget]
+        m_Value: https://storage.googleapis.com/tc-addressable-test/[BuildTarget]
     - m_InheritedParent: 
       m_Id: 3e5689539ecc4194cb9a97c1cec874bf
       m_ProfileName: Dev
@@ -64,7 +64,21 @@ MonoBehaviour:
       - m_Id: 4dcc1e5381db278479e93c10d4876081
         m_Value: ServerData/[BuildTarget]
       - m_Id: 9ffe224876edd4546a647bcb7477be59
-        m_Value: https://github.com/nghuycode/HookHook/blob/AddressableTestBranch/HookHook-Unity/ServerData/[BuildTarget]
+        m_Value: https://storage.googleapis.com/tc-addressable-test/[BuildTarget]
+    - m_InheritedParent: 
+      m_Id: 10c6ac9987c0d7e4186d920497795952
+      m_ProfileName: NewTest
+      m_Values:
+      - m_Id: d795c01307d4ba34caa7b6bbe97f05af
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: 45ca1a584ac2e2a47af00ed36d1206d3
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: cde720549e7d8ac42a23829f9128a3d6
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: 4dcc1e5381db278479e93c10d4876081
+        m_Value: ServerData/[BuildTarget]
+      - m_Id: 9ffe224876edd4546a647bcb7477be59
+        m_Value: https://storage.googleapis.com/tc-addressable-test/[BuildTarget]
     m_ProfileEntryNames:
     - m_Id: d795c01307d4ba34caa7b6bbe97f05af
       m_Name: BuildTarget
@@ -98,7 +112,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 70b644e7293e1114ab083ab11193c0e0, type: 2}
   - {fileID: 11400000, guid: a647f40e4e356664a8c0e3d9a0474f08, type: 2}
   - {fileID: 11400000, guid: c46e26741f6f9aa42ad5d2faaa1b6684, type: 2}
-  m_ActiveProfileId: 3e5689539ecc4194cb9a97c1cec874bf
+  m_ActiveProfileId: 10c6ac9987c0d7e4186d920497795952
   m_HostingServicesManager:
     m_HostingServiceInfos: []
     m_Settings: {fileID: 11400000}

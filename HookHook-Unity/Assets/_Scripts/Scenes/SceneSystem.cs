@@ -48,8 +48,7 @@ public class SceneSystem : MonoBehaviour
 
     public void LevelMenuToGameMenu()
     {
-        StartCoroutine(LoadGame(LevelMenu));        
-        
+        StartCoroutine(LoadGame(LevelMenu));         
     }
 
 
@@ -92,7 +91,8 @@ public class SceneSystem : MonoBehaviour
         DeactivateScene(LevelMenu);
         ActivateScene(LoadingScene);
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("DemoHook");
+        AddressableSceneManager.Instance.LoadGameSceneAsync("Gameplay");
+        //SceneManager.LoadScene("DemoHook");
         
     }
 }

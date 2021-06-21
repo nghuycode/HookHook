@@ -78,7 +78,7 @@ public class InGameUIManager : MonoBehaviour
     {
         AudioManager.AM.Play("Button");
         Time.timeScale = 1;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+        AddressableSceneManager.Instance.LoadGameSceneAsync("Menu");
     }
     public void OnUpdateCoin(int coinCount) {
         Coin.text = "X" + coinCount.ToString();

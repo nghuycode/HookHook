@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: HookHookScene
+  m_EditorClassIdentifier: 
+  m_GroupName: HookHookScene
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 929b404ac2ca5964bb0a5fcaabea78d4
+  m_SerializeEntries:
+  - m_GUID: f19d4b98a4fe13645b9c329d1dabba7c
+    m_Address: Assets/_Scenes/DemoHook.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 102900000, guid: f19d4b98a4fe13645b9c329d1dabba7c, type: 3}
+    m_TargetAsset: {fileID: 102900000, guid: f19d4b98a4fe13645b9c329d1dabba7c, type: 3}
+  - m_GUID: ed0daa88b27690c42beb2329a4221fd6
+    m_Address: Assets/_Scenes/Menu.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 102900000, guid: ed0daa88b27690c42beb2329a4221fd6, type: 3}
+    m_TargetAsset: {fileID: 102900000, guid: ed0daa88b27690c42beb2329a4221fd6, type: 3}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 76d0e26d279ec9c4c871d3c145de7756, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: bd6480206edb9e5469412df4e07ae5e8, type: 2}
+    - {fileID: 11400000, guid: b08a4f79d3b4bc7459794fabf378dba8, type: 2}
